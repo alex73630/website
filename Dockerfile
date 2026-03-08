@@ -11,7 +11,7 @@ COPY .yarn/ ./.yarn/
 COPY package.json yarn.lock ./
 
 # Cache mount for Yarn with Railway specific ID format
-RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=s/48b330f6-1bdf-44ef-94e3-d8e46bff8752-/usr/local/share/.cache/yarn,sharing=locked \
+RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=s/d5ca8ab0-23ab-4d0e-bfd3-5735cee08a86-/usr/local/share/.cache/yarn,sharing=locked \
     YARN_CACHE_FOLDER=/usr/local/share/.cache/yarn yarn install --immutable
 
 COPY . .
