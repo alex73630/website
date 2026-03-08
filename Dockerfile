@@ -1,0 +1,26 @@
+FROM node:krypton-alpine AS base
+ENV NODE_ENV=production YARN_VERSION=4.13.0 NPM_CONFIG_UPDATE_NOTIFIER=false
+# install and use yarn 4.x
+RUN corepack enable && corepack prepare yarn@${YARN_VERSION} && yarn set version ${YARN_VERSION}
+
+FROM base AS build
+WORKDIR /app
+
+COPY .yarnrc.yml ./
+COPY .yarn/ ./.yarn/
+COPY package.json yarn.lock ./
+
+# Cache mount for Yarn with Railway specific ID format
+RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=s/48b330f6-1bdf-44ef-94e3-d8e46bff8752-/usr/local/share/.cache/yarn,sharing=locked \
+    YARN_CACHE_FOLDER=/usr/local/share/.cache/yarn yarn install --immutable
+
+COPY . .
+
+RUN yarn build
+
+FROM nginx:alpine AS runtime
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 8080
+
+CMD ["nginx", "-g", "daemon off;"]
