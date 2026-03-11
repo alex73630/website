@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Picture, getImage } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
@@ -9,7 +9,14 @@ import { ContentSection } from "../components/ContentSection";
 import { Footer } from "../components/Footer";
 
 import profilImage from "../assets/profil.png";
-import twitchClipImage from "../assets/twitch_clip.webp";
+import twitchClipAvif from "../assets/twitch_clip.avif";
+import twitchClipFallback from "../assets/twitch_clip_fallback.png";
+
+const fallbackImage = await getImage({
+	src: twitchClipFallback,
+	widths: [320, 640, twitchClipFallback.width],
+	format: 'webp'
+});
 
 ---
 
@@ -31,15 +38,20 @@ import twitchClipImage from "../assets/twitch_clip.webp";
 		<Expertise />
 		<Experience />
 		<ContentSection>
-			<Picture 
-				src={twitchClipImage} 
-				formats={['webp']}
-				fallbackFormat="webp"
-				alt="Twitch Livestream Preview" 
-				widths={[320, 640, twitchClipImage.width]}
-				sizes="(max-width: 1024px) 100vw, 50vw"
-				class="absolute inset-0 h-full w-full object-cover opacity-60 transition-opacity group-hover:opacity-80"
-			/>
+			<picture>
+				<source srcset={twitchClipAvif.src} type="image/avif" media="(prefers-reduced-motion: no-preference)" />
+				<source 
+					srcset={fallbackImage.srcSet.attribute}
+					sizes="(max-width: 1024px) 100vw, 50vw"
+					type="image/webp"
+				/>
+				<img 
+					src={fallbackImage.src}
+					{...fallbackImage.attributes}
+					alt="Twitch Livestream Preview" 
+					class="absolute inset-0 h-full w-full object-cover opacity-60 transition-opacity group-hover:opacity-80"
+				/>
+			</picture>
 		</ContentSection>
 	</main>
 	<Footer />
