@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import '../styles/global.css'
 
 import { SEO } from "astro-seo";
@@ -71,6 +72,7 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 ---
 <html lang="fr">
 	<head>
+		<Font cssVariable="--font-ibm-plex" preload />
 		<SEO
 			title={title}
 			titleTemplate='%s - Alexandre Sanchez'

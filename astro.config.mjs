@@ -2,7 +2,7 @@
 import react from "@astrojs/react"
 import sitemap from "@astrojs/sitemap"
 import tailwindcss from "@tailwindcss/vite"
-import { defineConfig } from "astro/config"
+import { defineConfig, fontProviders } from "astro/config"
 import { viteStaticCopy } from "vite-plugin-static-copy"
 
 // https://astro.build/config
@@ -13,6 +13,27 @@ export default defineConfig({
 	build: {
 		inlineStylesheets: "never"
 	},
+
+	fonts: [
+		{
+			name: "IBM Plex Sans Variable",
+			cssVariable: "--font-ibm-plex",
+			provider: fontProviders.npm(),
+			options: {
+				package: "@fontsource-variable/ibm-plex-sans",
+				file: "wght.css"
+			}
+		},
+		{
+			name: "IBM Plex Sans Variable",
+			cssVariable: "--font-ibm-plex",
+			provider: fontProviders.npm(),
+			options: {
+				package: "@fontsource-variable/ibm-plex-sans",
+				file: "wght-italic.css"
+			}
+		}
+	],
 
 	integrations: [react(), sitemap()],
 	vite: {
