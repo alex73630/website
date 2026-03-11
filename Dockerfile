@@ -19,9 +19,16 @@ COPY . .
 RUN --mount=type=cache,target=/app/node_modules/.astro,id=s/d5ca8ab0-23ab-4d0e-bfd3-5735cee08a86-/app/node_modules/.astro \
     yarn build
 
-FROM nginx:alpine AS runtime
+FROM nginx:alpine-slim AS runtime
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/dist /usr/share/nginx/html
+
+# Pre-compress static files for gzip_static
+RUN find /usr/share/nginx/html -type f \
+    \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.xml" \
+    -o -name "*.svg" -o -name "*.json" -o -name "*.txt" \) \
+    -exec gzip -9 -k {} \;
+
 EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
