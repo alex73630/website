@@ -9,6 +9,9 @@ import type { Person, ProfilePage, Thing, WebSite, WithContext } from "schema-dt
 import profilImage from "../assets/profil.webp";
 import faviconSvg from "../assets/logo.svg?no-inline";
 
+import PostHog from "../components/PostHog.astro";
+import { CookieBanner } from "../components/CookieBanner";
+
 interface Props {
   title?: string;
   description?: string;
@@ -95,6 +98,7 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 		<link href={faviconSvg} type="image/svg+xml" rel="icon" />
 
 		{schemas.map((s) => <Schema item={s} />)}
+		<PostHog />
 	</head>
 	<body class="bg-[#0b1120] text-slate-100 antialiased min-h-screen relative selection:bg-otter-pink-200 selection:text-[#0b1120]">
 		{/* Global Gradient & SVG pattern wrapper */}
@@ -124,5 +128,6 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 				parseTwemoji();
 				document.addEventListener("astro:page-load", parseTwemoji);
 		</script>
+		<CookieBanner client:load />
 	</body>
 </html>

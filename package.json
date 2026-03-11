@@ -17,6 +17,7 @@
 		"@astrojs/react": "5.0.0",
 		"@astrojs/sitemap": "3.7.1",
 		"@fontsource-variable/ibm-plex-sans": "^5.2.8",
+		"@posthog/react": "^1.8.2",
 		"@tailwindcss/vite": "^4.2.1",
 		"@twemoji/api": "^17.0.2",
 		"@twemoji/svg": "^15.0.0",
@@ -25,6 +26,7 @@
 		"astro": "6.0.3",
 		"astro-seo": "^1.1.0",
 		"astro-seo-schema": "^5.2.0",
+		"posthog-js": "^1.360.1",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
 		"tailwindcss": "^4.2.1"

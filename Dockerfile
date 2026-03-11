@@ -16,6 +16,12 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=s/d5ca8ab0-23ab-4d
 
 COPY . .
 
+ARG PUBLIC_POSTHOG_KEY
+ENV PUBLIC_POSTHOG_KEY=$PUBLIC_POSTHOG_KEY
+
+ARG PUBLIC_POSTHOG_COOKIE_MODE
+ENV PUBLIC_POSTHOG_COOKIE_MODE=$PUBLIC_POSTHOG_COOKIE_MODE
+
 RUN --mount=type=cache,target=/app/node_modules/.astro,id=s/d5ca8ab0-23ab-4d0e-bfd3-5735cee08a86-/app/node_modules/.astro \
     yarn build
 
