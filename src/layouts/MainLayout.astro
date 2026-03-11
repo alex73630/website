@@ -20,7 +20,7 @@ interface Props {
 
 const { 
 	title, 
-	description = "Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space. 10 ans d'expérience au service des startups.", 
+	description = `Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space.\nPlus de 10 ans d'expérience au service des startups.`,
 	schema 
 } = Astro.props;
 
@@ -33,7 +33,7 @@ const personSchema: WithContext<Person> = {
 	name: "Alexandre Sanchez",
 	url: websiteUrl,
 	jobTitle: "Expert Backend NodeJS/TypeScript",
-	description: "Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space. 10 ans d'expérience au service des startups.",
+	description: "Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space. Plus de 10 ans d'expérience au service des startups.",
 	image: `${websiteUrl}${profilImage.src}`,
 	worksFor: {
 		"@type": "Organization",

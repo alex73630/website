@@ -10,19 +10,28 @@ function BannerContent() {
 	const [consentGiven, setConsentGiven] = useState<string | null>(null)
 
 	useEffect(() => {
-		const checkConsent = () => {
+		let timeoutId: number | undefined
+		const maxRetries = 50 // 5 seconds max
+
+		const checkConsent = (currentRetries: number) => {
 			// Fallback to window.posthog if usePostHog is still waking up
 			const client = ph || (typeof window !== "undefined" ? (window as any).posthog : null)
 
 			if (client && typeof client.get_explicit_consent_status === "function") {
 				const state = client.get_explicit_consent_status() ?? "pending"
 				setConsentGiven(state)
-			} else {
+			} else if (currentRetries < maxRetries) {
 				// PostHog snippet is async; if not ready, check again slightly later
-				setTimeout(checkConsent, 100)
+				timeoutId = window.setTimeout(() => checkConsent(currentRetries + 1), 100)
 			}
 		}
-		checkConsent()
+		checkConsent(0)
+
+		return () => {
+			if (timeoutId) {
+				window.clearTimeout(timeoutId)
+			}
+		}
 	}, [ph])
 
 	// If cookieMode is always, do not show the banner at all
@@ -80,16 +89,25 @@ export function CookieBanner() {
 	const [client, setClient] = useState<any>(null)
 
 	useEffect(() => {
+		let timeoutId: number | undefined
+		const maxRetries = 50 // 5 seconds max
+
 		// Use the already initialized global window.posthog instead of uninitialized NPM instance
-		const tryInit = () => {
+		const tryInit = (currentRetries: number) => {
 			if (typeof window !== "undefined" && (window as any).posthog) {
 				setClient((window as any).posthog)
-			} else {
-				setTimeout(tryInit, 100)
+			} else if (currentRetries < maxRetries) {
+				timeoutId = window.setTimeout(() => tryInit(currentRetries + 1), 100)
 			}
 		}
 
-		tryInit()
+		tryInit(0)
+
+		return () => {
+			if (timeoutId) {
+				window.clearTimeout(timeoutId)
+			}
+		}
 	}, [])
 
 	if (!client) {
