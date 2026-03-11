@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 
 export function Hero({ children }: { children?: ReactNode }) {
 	return (
-		<section className="relative mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-16 px-6 py-20 lg:flex-row lg:gap-24 lg:py-32">
+		<section className="relative mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-16 px-6 pt-16 pb-10 lg:flex-row lg:gap-24 lg:py-32">
 			{/* Content */}
 			<div className="z-10 flex w-full flex-col items-center gap-8 lg:w-[55%] lg:items-start">
 				{/* Availability Badge */}

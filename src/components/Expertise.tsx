@@ -66,8 +66,8 @@ const expertises = [
 
 export function Expertise() {
 	return (
-		<section id="expertise" className="border-otter-pink-200/5 relative mt-10 w-full border-t">
-			<div className="mx-auto flex max-w-7xl flex-col gap-16 px-6 py-20 lg:py-32">
+		<section id="expertise" className="border-otter-pink-200/5 relative w-full border-t">
+			<div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-12 lg:gap-16 lg:py-32">
 				{/* Header */}
 				<div className="flex flex-col items-center gap-4">
 					<h2 className="text-center text-3xl leading-tight font-bold text-white lg:text-[40px]">
