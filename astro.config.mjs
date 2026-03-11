@@ -35,7 +35,14 @@ export default defineConfig({
 		}
 	],
 
-	integrations: [react(), sitemap()],
+	integrations: [
+		react({
+			babel: {
+				plugins: ["babel-plugin-react-compiler"]
+			}
+		}),
+		sitemap()
+	],
 	vite: {
 		plugins: [
 			tailwindcss(),
