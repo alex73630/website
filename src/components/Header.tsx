@@ -1,10 +1,12 @@
+import faviconSvg from "../assets/logo.svg?no-inline"
+
 export function Header() {
 	return (
 		<header className="border-otter-pink-200/10 sticky top-0 z-50 w-full border-b bg-[#0b1120]/80 backdrop-blur-md">
 			<div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 				<div className="flex items-center gap-3">
 					<div className="bg-otter-pink-200/20 flex items-center justify-center rounded-2xl p-2">
-						<img src="/favicon.svg" alt="Logo" className="h-5 w-5" />
+						<img src={faviconSvg} alt="Logo" className="h-5 w-5" />
 					</div>
 					<div className="hidden text-xl leading-tight font-bold tracking-tight text-white sm:block">
 						Alexandre Sanchez

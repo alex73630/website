@@ -16,7 +16,8 @@ RUN --mount=type=cache,target=/usr/local/share/.cache/yarn,id=s/d5ca8ab0-23ab-4d
 
 COPY . .
 
-RUN yarn build
+RUN --mount=type=cache,target=/app/node_modules/.astro,id=s/d5ca8ab0-23ab-4d0e-bfd3-5735cee08a86-/app/node_modules/.astro \
+    yarn build
 
 FROM nginx:alpine AS runtime
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf

@@ -35,7 +35,7 @@ export function ContentSection({ children }: { children?: ReactNode }) {
 					href="https://twitch.tv/alex73630"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="group hover:border-otter-pink-200/30 focus-visible:ring-otter-pink-200 relative min-h-75 w-full overflow-hidden rounded-[20px] border border-slate-800 bg-slate-900 transition-all duration-300 hover:ring-2 focus-visible:outline-none lg:min-h-100"
+					className="group hover:border-otter-pink-200/30 focus-visible:ring-otter-pink-200 relative aspect-video w-full overflow-hidden rounded-[20px] border border-slate-800 bg-slate-900 transition-all duration-300 hover:ring-2 focus-visible:outline-none"
 				>
 					{/* Background pattern placeholder */}
 					<div className="absolute inset-0 bg-linear-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 opacity-40 transition-opacity group-hover:opacity-60"></div>
