@@ -145,9 +145,18 @@ export function Footer() {
 							Otterly Space
 						</a>
 					</p>
-					<p className="m-0 text-center text-sm font-normal text-slate-400 lg:text-right">
-						© 2026 Alexandre Sanchez. Tous droits réservés.
-					</p>
+					<div className="flex flex-col items-center gap-2 lg:flex-row lg:gap-4 lg:text-right">
+						<a
+							href="/terms"
+							className="hover:text-otter-pink-200 text-sm font-normal text-slate-400 transition-colors"
+						>
+							Mentions légales
+						</a>
+						<span className="hidden text-slate-600 lg:inline">•</span>
+						<p className="m-0 text-center text-sm font-normal text-slate-400">
+							© 2026 Alexandre Sanchez. Tous droits réservés.
+						</p>
+					</div>
 				</div>
 			</div>
 		</footer>
