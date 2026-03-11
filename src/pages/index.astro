@@ -8,14 +8,14 @@ import { Experience } from "../components/Experience";
 import { ContentSection } from "../components/ContentSection";
 import { Footer } from "../components/Footer";
 
-import profilImage from "../assets/profil.png";
+import profilImage from "../assets/profil.webp";
 import twitchClipAvif from "../assets/twitch_clip.avif";
-import twitchClipFallback from "../assets/twitch_clip_fallback.png";
+import twitchClipFallback from "../assets/twitch_clip_fallback.webp";
 
 const fallbackImage = await getImage({
 	src: twitchClipFallback,
 	widths: [320, 640, twitchClipFallback.width],
-	format: 'webp'
+	format: 'webp',
 });
 
 ---
@@ -27,6 +27,7 @@ const fallbackImage = await getImage({
 			<Picture 
 				src={profilImage} 
 				formats={['avif', 'webp']}
+				fallbackFormat="webp"
 				alt="Alexandre Sanchez" 
 				widths={[360, 480, 600, 800]}
 				sizes="(max-width: 1024px) 100vw, 600px"
