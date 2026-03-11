@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+@theme {
+	/* Slate Blue / Neutrals */
+	--color-slate-blue-100: oklch(0.968 0.007 247.9);
+	--color-slate-blue-200: oklch(0.927 0.01 250.8);
+	--color-slate-blue-300: oklch(0.869 0.02 252.9);
+	--color-slate-blue-400: oklch(0.711 0.035 256.8);
+	--color-slate-blue-500: oklch(0.554 0.041 257.4);
+	--color-slate-blue-600: oklch(0.432 0.04 258.8);
+	--color-slate-blue-700: oklch(0.306 0.04 261.2);
+	--color-slate-blue-800: oklch(0.246 0.04 263.6);
+	--color-slate-blue-900: oklch(0.208 0.04 265.8);
+	--color-slate-blue-950: oklch(0.18 0.032 266.6);
+
+	--color-otter-pink-50: oklch(0.959 0.022 344.2);
+	--color-otter-pink-100: oklch(0.908 0.053 346);
+	--color-otter-pink-200: oklch(0.825 0.108 345.6); /* #f9a9d5 */
+	--color-otter-pink-300: oklch(0.779 0.145 345.7);
+	--color-otter-pink-400: oklch(0.716 0.199 345.6);
+	--color-otter-pink-500: oklch(0.643 0.246 345.5);
+	--color-otter-pink-600: oklch(0.552 0.212 345.3);
+	--color-otter-pink-700: oklch(0.454 0.173 345.5);
+	--color-otter-pink-800: oklch(0.352 0.134 345.4);
+	--color-otter-pink-900: oklch(0.246 0.094 345.8);
+	--color-otter-pink-950: oklch(0.186 0.072 345.1);
+
+	/* Accents */
+	--color-accent-red: oklch(0.637 0.208 25.3); /* #ef4444 */
+	--color-accent-pink: var(--color-otter-pink-200);
+}
