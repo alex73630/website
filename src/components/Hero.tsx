@@ -1,4 +1,6 @@
-export function Hero() {
+import type { ReactNode } from "react"
+
+export function Hero({ children }: { children?: ReactNode }) {
 	return (
 		<section className="relative mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-16 px-6 py-20 lg:flex-row lg:gap-24 lg:py-32">
 			{/* Content */}
@@ -26,7 +28,7 @@ export function Hero() {
 
 				{/* Subtitle */}
 				<p className="max-w-2xl text-center text-xl leading-relaxed font-normal text-slate-400 lg:text-left">
-					9 ans d'expérience au service des startups. Passionné par l'architecture
+					10+ ans d'expérience au service des startups. Passionné par l'architecture
 					logicielle, la performance et… les loutres. 🦦
 				</p>
 
@@ -55,19 +57,9 @@ export function Hero() {
 				<div className="bg-otter-pink-200/10 pointer-events-none absolute -top-6 -left-6 z-0 size-48 rounded-full blur-2xl"></div>
 
 				<div className="border-otter-pink-200/10 from-otter-pink-200/20 relative z-10 aspect-4/5 w-full overflow-hidden rounded-3xl border bg-linear-to-tr to-transparent p-px">
-					<div className="group relative flex h-full w-full items-center justify-center overflow-hidden rounded-[1.44rem] bg-[#0b1120]">
-						{/* The actual image if avaiable. In real case it should be a local asset */}
-						<img
-							src="/images/profile.jpg"
-							alt="Alexandre Sanchez"
-							width={600}
-							height={800}
-							className="h-full w-full object-cover opacity-60 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-80"
-							onError={(e) => {
-								;(e.target as HTMLImageElement).src =
-									"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxZTI5M2IiLz48L3N2Zz4="
-							}}
-						/>
+					<div className="group bg-otter-pink-500/15 relative flex h-full w-full items-center justify-center overflow-hidden rounded-[1.44rem]">
+						{/* The actual image passed down as a child from Astro */}
+						{children}
 					</div>
 				</div>
 			</div>

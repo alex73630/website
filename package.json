@@ -16,11 +16,15 @@
 	"dependencies": {
 		"@astrojs/react": "^4.4.2",
 		"@astrojs/sitemap": "^3.7.0",
+		"@fontsource/ibm-plex-sans": "^5.2.8",
 		"@tailwindcss/vite": "^4.2.1",
+		"@twemoji/api": "^17.0.2",
+		"@twemoji/svg": "^15.0.0",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"astro": "^5.18.0",
 		"astro-seo": "^1.1.0",
+		"astro-seo-schema": "^5.2.0",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
 		"tailwindcss": "^4.2.1"
@@ -30,7 +34,9 @@
 		"nano-staged": "^0.9.0",
 		"oxfmt": "^0.36.0",
 		"oxlint": "^1.51.0",
-		"oxlint-tsgolint": "^0.16.0"
+		"oxlint-tsgolint": "^0.16.0",
+		"schema-dts": "^1.1.5",
+		"vite-plugin-static-copy": "^3.2.0"
 	},
 	"nano-staged": {
 		"*": "oxfmt --no-error-on-unmatched-pattern",

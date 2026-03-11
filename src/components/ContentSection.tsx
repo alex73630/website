@@ -1,3 +1,5 @@
+import type { ReactNode } from "react"
+
 const ContentSectionGithubIcon = (
 	<svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" className="h-8 w-8">
 		<path
@@ -21,7 +23,7 @@ const ContentSectionArrowIcon = (
 	</svg>
 )
 
-export function ContentSection() {
+export function ContentSection({ children }: { children?: ReactNode }) {
 	return (
 		<section
 			id="contenus"
@@ -30,13 +32,14 @@ export function ContentSection() {
 			{/* Visual / Twitch Card */}
 			<div className="flex w-full lg:w-1/2">
 				<a
-					href="https://twitch.tv"
+					href="https://twitch.tv/alex73630"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="group hover:border-otter-pink-200/30 focus-visible:ring-otter-pink-200 relative min-h-75 w-full overflow-hidden rounded-[20px] border border-slate-800 bg-slate-900 transition-all duration-300 hover:ring-2 focus-visible:outline-none lg:min-h-100"
 				>
 					{/* Background pattern placeholder */}
 					<div className="absolute inset-0 bg-linear-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 opacity-40 transition-opacity group-hover:opacity-60"></div>
+					{children}
 
 					<div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black/90 via-black/40 to-transparent p-6 lg:p-8">
 						<div className="flex flex-col gap-2">
@@ -79,12 +82,12 @@ export function ContentSection() {
 							<span className="text-base font-bold text-slate-100 transition-colors group-hover:text-white">
 								GitHub
 							</span>
-							<span className="text-sm font-normal text-slate-500 transition-colors group-hover:text-slate-400">
+							<span className="text-sm font-normal text-slate-400 transition-colors group-hover:text-slate-300">
 								@alex73630
 							</span>
 						</div>
 					</div>
-					<div className="group-hover:text-otter-pink-200 text-slate-500 transition-transform group-hover:translate-x-1">
+					<div className="group-hover:text-otter-pink-200 text-slate-400 transition-transform group-hover:translate-x-1">
 						{ContentSectionArrowIcon}
 					</div>
 				</a>

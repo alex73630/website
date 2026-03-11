@@ -2,13 +2,72 @@
 import '../styles/global.css'
 
 import { SEO } from "astro-seo";
+import { Schema } from "astro-seo-schema";
+import type { Graph, Person, ProfilePage, Thing, WebSite, WithContext } from "schema-dts";
+
+import profilImage from "../assets/profil.png";
 
 interface Props {
   title?: string;
   description?: string;
+  schema?: WithContext<Thing> | WithContext<Thing>[];
 }
 
-const { title, description } = Astro.props;
+const { 
+	title, 
+	description = "Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space. 10 ans d'expérience au service des startups.", 
+	schema 
+} = Astro.props;
+
+const websiteUrl = "https://alex73630.xyz";
+
+const personSchema: WithContext<Person> = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"@id": `${websiteUrl}/#person`,
+	name: "Alexandre Sanchez",
+	url: websiteUrl,
+	jobTitle: "Expert Backend NodeJS/TypeScript",
+	description: "Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space. 10 ans d'expérience au service des startups.",
+	image: `${websiteUrl}${profilImage.src}`,
+	worksFor: {
+		"@type": "Organization",
+		name: "Otterly Space"
+	},
+	sameAs: [
+		"https://bsky.app/profile/alex73630.xyz", // Bluesky
+		"https://twitter.com/alex73630",
+		"https://github.com/alex73630",
+		"https://www.linkedin.com/in/alex-otterly/"
+	]
+};
+
+const profilePageSchema: WithContext<ProfilePage> = {
+	"@context": "https://schema.org",
+	"@type": "ProfilePage",
+	"@id": `${websiteUrl}/#webpage`,
+	url: websiteUrl,
+	name: title ? `${title} - Alexandre Sanchez` : "Alexandre Sanchez - Expert Backend NodeJS/TypeScript",
+	description: description,
+	mainEntity: {
+		"@id": `${websiteUrl}/#person`
+	}
+};
+
+const webSiteSchema: WithContext<WebSite> = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"@id": `${websiteUrl}/#website`,
+	url: websiteUrl,
+	name: "Alexandre Sanchez",
+	description: "Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space.",
+	inLanguage: "fr-FR",
+	publisher: {
+		"@id": `${websiteUrl}/#person`
+	}
+};
+
+const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
 ---
 <html lang="fr">
 	<head>
@@ -29,6 +88,8 @@ const { title, description } = Astro.props;
 				link: [{ rel: "icon", href: "/favicon.ico" }, { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }, { rel: "sitemap", href: "/sitemap-index.xml" }],
 			}}
 		/>
+
+		{schemas.map((s) => <Schema item={s} />)}
 	</head>
 	<body class="bg-[#0b1120] text-slate-100 antialiased min-h-screen relative selection:bg-otter-pink-200 selection:text-[#0b1120]">
 		{/* Global Gradient & SVG pattern wrapper */}
@@ -44,5 +105,19 @@ const { title, description } = Astro.props;
 			</svg>
 		</div>
 		<slot />
+		<script>
+				import twemoji from "@twemoji/api";
+
+				function parseTwemoji() {
+						twemoji.parse(document.body, {
+								base: '',
+								folder: '/twemoji',
+								ext: '.svg'
+						});
+				}
+
+				parseTwemoji();
+				document.addEventListener("astro:page-load", parseTwemoji);
+		</script>
 	</body>
 </html>

@@ -12,7 +12,7 @@ export function Experience() {
 				{/* Text Block */}
 				<div className="flex w-full flex-col gap-2 text-center lg:w-1/3 lg:text-left">
 					<h2 className="text-otter-pink-200 mb-2 text-[48px] leading-none font-black lg:text-[64px]">
-						9 ans
+						10+ ans
 					</h2>
 					<span className="mb-2 text-lg font-bold tracking-wider text-white uppercase lg:text-xl">
 						d'expérience
@@ -30,7 +30,7 @@ export function Experience() {
 							<span className="text-xl font-bold text-white lg:text-2xl">
 								{exp.name}
 							</span>
-							<span className="text-otter-pink-200/60 text-[10px] font-normal tracking-wider uppercase lg:text-xs">
+							<span className="text-otter-pink-200/90 text-[10px] font-normal tracking-wider uppercase lg:text-xs">
 								{exp.type}
 							</span>
 						</div>

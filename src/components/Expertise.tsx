@@ -1,8 +1,8 @@
 const expertises = [
 	{
-		title: "Backend Dev (Node/TS)",
+		title: "Expert Backend Dev (Node/TS)",
 		description:
-			"Développement robuste et scalable utilisant TypeScript, NestJS ou Fastify. Focus sur la maintenabilité et les tests.",
+			"Développement robuste et scalable utilisant TypeScript, NestJS, Express et bien d'autres frameworks. Focus sur la maintenabilité et les tests.",
 		icon: (
 			<svg
 				aria-hidden="true"
@@ -23,7 +23,7 @@ const expertises = [
 	{
 		title: "Architecture & DevOps",
 		description:
-			"Mise en place d'infrastructures cloud (AWS/GCP), déploiement continu via GitHub Actions et Dockerisation.",
+			"Mise en place d'infrastructures cloud (AWS/GCP) ou on-premise, déploiement continu via GitHub Actions et Dockerisation.",
 		icon: (
 			<svg
 				aria-hidden="true"
