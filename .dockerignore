@@ -53,6 +53,10 @@ README.md
 Dockerfile
 vercel.json
 .nvmrc
+.git
+.gitignore
+.husky
+.agents
 
 # Yarn
 .pnp.*
@@ -111,3 +115,7 @@ yarn-error.log*
 .turbo/
 out/
 docker/
+
+# Astro
+.astro/
+

@@ -1,7 +1,46 @@
 ---
+import { Picture } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
+import { Header } from "../components/Header";
+import { Hero } from "../components/Hero";
+import { Expertise } from "../components/Expertise";
+import { Experience } from "../components/Experience";
+import { ContentSection } from "../components/ContentSection";
+import { Footer } from "../components/Footer";
+
+import profilImage from "../assets/profil.png";
+import twitchClipImage from "../assets/twitch_clip.webp";
+
 ---
 
 <MainLayout>
-	<h1>Astro</h1>
+	<Header />
+	<main>
+		<Hero>
+			<Picture 
+				src={profilImage} 
+				formats={['avif', 'webp']}
+				alt="Alexandre Sanchez" 
+				widths={[360, 480, 600, 800]}
+				sizes="(max-width: 1024px) 100vw, 600px"
+				class="h-full w-full object-cover opacity-70 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-80"
+				fetchpriority="high"
+				loading="eager"
+			/>
+		</Hero>
+		<Expertise />
+		<Experience />
+		<ContentSection>
+			<Picture 
+				src={twitchClipImage} 
+				formats={['webp']}
+				fallbackFormat="webp"
+				alt="Twitch Livestream Preview" 
+				widths={[320, 640, twitchClipImage.width]}
+				sizes="(max-width: 1024px) 100vw, 50vw"
+				class="absolute inset-0 h-full w-full object-cover opacity-60 transition-opacity group-hover:opacity-80"
+			/>
+		</ContentSection>
+	</main>
+	<Footer />
 </MainLayout>
