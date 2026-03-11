@@ -35,8 +35,43 @@ export default defineConfig({
 		}
 	],
 
-	integrations: [react(), sitemap()],
+	integrations: [
+		react({
+			babel: {
+				plugins: ["babel-plugin-react-compiler"]
+			}
+		}),
+		sitemap()
+	],
 	vite: {
+		server: {
+			proxy: {
+				"/hog/static": {
+					target: "https://eu-assets.i.posthog.com/static",
+					changeOrigin: true,
+					rewrite: (path) => path.replace(/^\/hog\/static/, "")
+				},
+				"/hog": {
+					target: "https://eu.i.posthog.com",
+					changeOrigin: true,
+					rewrite: (path) => path.replace(/^\/hog/, "")
+				}
+			}
+		},
+		preview: {
+			proxy: {
+				"/hog/static": {
+					target: "https://eu-assets.i.posthog.com/static",
+					changeOrigin: true,
+					rewrite: (path) => path.replace(/^\/hog\/static/, "")
+				},
+				"/hog": {
+					target: "https://eu.i.posthog.com",
+					changeOrigin: true,
+					rewrite: (path) => path.replace(/^\/hog/, "")
+				}
+			}
+		},
 		plugins: [
 			tailwindcss(),
 			viteStaticCopy({
