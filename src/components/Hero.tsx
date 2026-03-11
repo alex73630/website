@@ -6,21 +6,25 @@ export function Hero({ children }: { children?: ReactNode }) {
 			{/* Content */}
 			<div className="z-10 flex w-full flex-col items-center gap-8 lg:w-[55%] lg:items-start">
 				{/* Availability Badge */}
-				<div className="bg-otter-pink-200/10 border-otter-pink-200/20 flex items-center gap-2 rounded-full border px-4 py-1.5">
-					<div className="relative h-2 w-2">
+				<div className="bg-otter-pink-200/10 border-otter-pink-200/20 flex w-fit max-w-full items-center gap-2 rounded-4xl border px-3 py-1.5 sm:px-4">
+					<div className="relative h-2 w-2 shrink-0">
 						<div className="bg-otter-pink-200 absolute inset-0 animate-ping rounded-full opacity-75 motion-reduce:animate-none"></div>
 						<div className="bg-otter-pink-200 relative h-2 w-2 rounded-full"></div>
 					</div>
-					<span className="text-otter-pink-200 text-xs font-bold tracking-wider uppercase">
+					<span className="text-otter-pink-200 text-center text-[10px] font-bold tracking-wider uppercase sm:text-xs">
 						Disponible pour de nouvelles missions
 					</span>
 				</div>
 
 				{/* Headlines */}
-				<h1 className="text-center text-5xl leading-tight font-black tracking-tight text-white lg:text-left lg:text-7xl">
+				<h1 className="text-center text-4xl leading-tight font-black tracking-tight text-white sm:text-5xl lg:text-left lg:text-7xl">
 					Expert Backend
 					<br />
-					<span className="text-otter-pink-200">NodeJS/TypeScript</span>
+					<span className="text-otter-pink-200">
+						NodeJS/
+						<wbr />
+						TypeScript
+					</span>
 					<br />& Fondateur
 					<br />
 					d'Otterly Space
