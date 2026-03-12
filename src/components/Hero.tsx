@@ -1,5 +1,7 @@
 import type { ReactNode } from "react"
 
+import { Twemoji } from "./common/Twemoji"
+
 export function Hero({ children }: { children?: ReactNode }) {
 	return (
 		<section className="relative mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-16 px-6 pt-16 pb-10 lg:flex-row lg:gap-24 lg:py-32">
@@ -32,25 +34,27 @@ export function Hero({ children }: { children?: ReactNode }) {
 
 				{/* Subtitle */}
 				<p className="max-w-2xl text-center text-xl leading-relaxed font-normal text-slate-400 lg:text-left">
-					10+ ans d'expérience au service des startups. Passionné par l'architecture
-					logicielle, la performance et… les loutres. 🦦
+					<Twemoji>
+						10+ ans d'expérience au service des startups. Passionné par l'architecture
+						logicielle, la performance et… les loutres. 🦦
+					</Twemoji>
 				</p>
 
 				{/* CTAs */}
 				<div className="flex w-full flex-col items-center gap-4 pt-4 sm:w-auto sm:flex-row">
 					<a
-						href="#contact"
+						href="#meet"
 						className="bg-otter-pink-200 hover:bg-otter-pink-300 focus-visible:ring-otter-pink-200 w-full rounded-3xl px-8 py-4 text-center text-lg font-bold text-[#0b1120] shadow-[0_20px_25px_-5px_rgba(249,169,213,0.25)] transition-colors focus-visible:ring-2 focus-visible:outline-none sm:w-auto"
 					>
-						Réserver un appel
+						Discuter avec moi
 					</a>
 					<a
-						href="https://malt.fr"
+						href="https://otterly.space"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="border-otter-pink-200/30 hover:bg-otter-pink-200/10 focus-visible:ring-otter-pink-200 w-full rounded-3xl border px-8 py-4 text-center text-lg font-bold text-white transition-colors focus-visible:ring-2 focus-visible:outline-none sm:w-auto"
 					>
-						Voir mon profil Malt
+						Découvrir Otterly Space
 					</a>
 				</div>
 			</div>

@@ -6,10 +6,12 @@ import { SEO } from "astro-seo";
 import { Schema } from "astro-seo-schema";
 import type { Person, ProfilePage, Thing, WebSite, WithContext } from "schema-dts";
 
+import { ClientRouter } from "astro:transitions";
+
 import profilImage from "../assets/profil.webp";
 import faviconSvg from "../assets/logo.svg?no-inline";
 
-import PostHog from "../components/PostHog.astro";
+import PostHog from "../components/common/PostHog.astro";
 import { ConsentBanner } from "../components/ConsentBanner";
 
 interface Props {
@@ -98,6 +100,7 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 		<link href={faviconSvg} type="image/svg+xml" rel="icon" />
 
 		{schemas.map((s) => <Schema item={s} />)}
+		<ClientRouter />
 		<PostHog />
 	</head>
 	<body class="bg-[#0b1120] text-slate-100 antialiased min-h-screen relative selection:bg-otter-pink-200 selection:text-[#0b1120]">
@@ -127,6 +130,11 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 
 				parseTwemoji();
 				document.addEventListener("astro:page-load", parseTwemoji);
+
+				// Easter egg handling for CSS
+				if (typeof window !== "undefined" && new URLSearchParams(window.location.search).has("uwu")) {
+					document.documentElement.classList.add("uwu-mode");
+				}
 		</script>
 		<ConsentBanner client:load />
 	</body>
