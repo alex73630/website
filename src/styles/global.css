@@ -43,8 +43,4 @@
 		vertical-align: -0.2em;
 		display: inline-block;
 	}
-
-	html {
-		scroll-behavior: smooth;
-	}
 }

@@ -76,7 +76,7 @@ const webSiteSchema: WithContext<WebSite> = {
 
 const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
 ---
-<html lang="fr">
+<html lang="fr" class="not-motion-reduce:scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<Font cssVariable="--font-ibm-plex" preload />
