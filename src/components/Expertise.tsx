@@ -44,7 +44,7 @@ const expertises = [
 	{
 		title: "Conseil & Audit",
 		description:
-			"Audit de performances, revue de code, et accompagnement stratégique pour vos choix technologiques.",
+			"Audit de performances, revue de code, et accompagnement stratégique pour tes choix technologiques.",
 		icon: (
 			<svg
 				className="text-otter-pink-200 h-6 w-6"
@@ -74,7 +74,8 @@ export function Expertise() {
 						Expertise Technique
 					</h2>
 					<p className="max-w-2xl text-center text-base font-normal text-slate-400 lg:text-lg">
-						Des fondations solides pour vos applications web les plus exigeantes.
+						Des fondations solides pour tes applications web et mobile les plus
+						exigeantes.
 					</p>
 				</div>
 

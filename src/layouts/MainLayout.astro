@@ -6,10 +6,12 @@ import { SEO } from "astro-seo";
 import { Schema } from "astro-seo-schema";
 import type { Person, ProfilePage, Thing, WebSite, WithContext } from "schema-dts";
 
+import { ClientRouter } from "astro:transitions";
+
 import profilImage from "../assets/profil.webp";
 import faviconSvg from "../assets/logo.svg?no-inline";
 
-import PostHog from "../components/PostHog.astro";
+import PostHog from "../components/common/PostHog.astro";
 import { ConsentBanner } from "../components/ConsentBanner";
 
 interface Props {
@@ -74,7 +76,7 @@ const webSiteSchema: WithContext<WebSite> = {
 
 const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
 ---
-<html lang="fr">
+<html lang="fr" class="not-motion-reduce:scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<Font cssVariable="--font-ibm-plex" preload />
@@ -98,6 +100,7 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 		<link href={faviconSvg} type="image/svg+xml" rel="icon" />
 
 		{schemas.map((s) => <Schema item={s} />)}
+		<ClientRouter />
 		<PostHog />
 	</head>
 	<body class="bg-[#0b1120] text-slate-100 antialiased min-h-screen relative selection:bg-otter-pink-200 selection:text-[#0b1120]">
@@ -125,8 +128,52 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 						});
 				}
 
+				function updateUwuModeFromQuery(search: string) {
+						if (typeof document === "undefined") return;
+
+						const params = new URLSearchParams(search || "");
+						const value = params.get("uwu");
+						const root = document.documentElement;
+
+						// If the parameter is absent, ensure uwu-mode is removed.
+						if (value === null) {
+								root.classList.remove("uwu-mode");
+								return;
+						}
+
+						const normalized = value.trim().toLowerCase();
+						const enabled =
+								normalized === "" ||
+								normalized === "1" ||
+								normalized === "true" ||
+								normalized === "yes";
+
+						// Explicit disabling values
+						if (
+								normalized === "0" ||
+								normalized === "false" ||
+								normalized === "null" ||
+								normalized === "no"
+						) {
+								root.classList.remove("uwu-mode");
+								return;
+						}
+
+						root.classList.toggle("uwu-mode", enabled);
+				}
+
 				parseTwemoji();
-				document.addEventListener("astro:page-load", parseTwemoji);
+				document.addEventListener("astro:page-load", () => {
+						parseTwemoji();
+						if (typeof window !== "undefined") {
+								updateUwuModeFromQuery(window.location.search);
+						}
+				});
+
+				// Easter egg handling for CSS on initial load
+				if (typeof window !== "undefined") {
+						updateUwuModeFromQuery(window.location.search);
+				}
 		</script>
 		<ConsentBanner client:load />
 	</body>

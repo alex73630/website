@@ -60,9 +60,8 @@ function BannerContent() {
 		<div className="border-otter-pink-200/20 fixed right-0 bottom-0 left-0 z-50 border-t bg-[#0b1120]/95 p-4 shadow-[0_-4px_20px_rgba(249,169,213,0.1)] backdrop-blur-md">
 			<div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
 				<p className="text-sm text-slate-300">
-					Nous utilisons des cookies analytiques pour comprendre comment vous interagissez
-					avec notre site et l'améliorer. Vous pouvez choisir de les accepter ou de les
-					refuser.
+					Nous utilisons des cookies analytiques pour comprendre comment tu interagis avec
+					notre site et l'améliorer. Tu peux choisir de les accepter ou de les refuser.
 				</p>
 				<div className="flex shrink-0 gap-3">
 					<button

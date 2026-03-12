@@ -6,6 +6,7 @@ import { Hero } from "../components/Hero";
 import { Expertise } from "../components/Expertise";
 import { Experience } from "../components/Experience";
 import { ContentSection } from "../components/ContentSection";
+import { MeetingCTA } from "../components/MeetingCTA";
 import { Footer } from "../components/Footer";
 
 import profilImage from "../assets/profil.webp";
@@ -54,6 +55,7 @@ const fallbackImage = await getImage({
 				/>
 			</picture>
 		</ContentSection>
+		<MeetingCTA client:load/>
 	</main>
 	<Footer />
 </MainLayout>

@@ -1,4 +1,5 @@
 import faviconSvg from "../assets/logo.svg?no-inline"
+import { Twemoji } from "./common/Twemoji"
 
 const LocationIcon = (
 	<svg
@@ -69,7 +70,12 @@ export function Footer() {
 					<div className="flex max-w-sm flex-col gap-4">
 						<div className="flex items-center gap-3">
 							<div className="bg-otter-pink-200/20 flex items-center justify-center rounded-lg p-1.5">
-								<img src={faviconSvg} alt="Logo" className="h-5 w-5" />
+								<img
+									src={faviconSvg}
+									alt="Logo"
+									className="h-5 w-5"
+									loading="lazy"
+								/>
 							</div>
 							<span className="text-xl font-bold text-white">Alexandre Sanchez</span>
 						</div>
@@ -137,7 +143,7 @@ export function Footer() {
 				{/* Bottom border & Credits */}
 				<div className="border-otter-pink-200/5 flex flex-col items-center justify-between gap-4 border-t pt-8 lg:flex-row">
 					<p className="m-0 text-center text-sm font-normal text-slate-400 lg:text-left">
-						Fait avec ❤️ & 🦦 par{" "}
+						<Twemoji>Fait avec ❤️ & 🦦 par</Twemoji>{" "}
 						<a
 							href="https://otterly.space"
 							className="text-otter-pink-200 hover:text-otter-pink-300 font-bold transition-colors"
