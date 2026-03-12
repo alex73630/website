@@ -20,6 +20,7 @@
 		"@posthog/react": "^1.8.2",
 		"@tailwindcss/vite": "^4.2.1",
 		"@twemoji/api": "^17.0.2",
+		"@twemoji/parser": "^17.0.1",
 		"@twemoji/svg": "^15.0.0",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",

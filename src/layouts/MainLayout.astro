@@ -128,12 +128,51 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 						});
 				}
 
-				parseTwemoji();
-				document.addEventListener("astro:page-load", parseTwemoji);
+				function updateUwuModeFromQuery(search: string) {
+						if (typeof document === "undefined") return;
 
-				// Easter egg handling for CSS
-				if (typeof window !== "undefined" && new URLSearchParams(window.location.search).has("uwu")) {
-					document.documentElement.classList.add("uwu-mode");
+						const params = new URLSearchParams(search || "");
+						const value = params.get("uwu");
+						const root = document.documentElement;
+
+						// If the parameter is absent, ensure uwu-mode is removed.
+						if (value === null) {
+								root.classList.remove("uwu-mode");
+								return;
+						}
+
+						const normalized = value.trim().toLowerCase();
+						const enabled =
+								normalized === "" ||
+								normalized === "1" ||
+								normalized === "true" ||
+								normalized === "yes";
+
+						// Explicit disabling values
+						if (
+								normalized === "0" ||
+								normalized === "false" ||
+								normalized === "null" ||
+								normalized === "no"
+						) {
+								root.classList.remove("uwu-mode");
+								return;
+						}
+
+						root.classList.toggle("uwu-mode", enabled);
+				}
+
+				parseTwemoji();
+				document.addEventListener("astro:page-load", () => {
+						parseTwemoji();
+						if (typeof window !== "undefined") {
+								updateUwuModeFromQuery(window.location.search);
+						}
+				});
+
+				// Easter egg handling for CSS on initial load
+				if (typeof window !== "undefined") {
+						updateUwuModeFromQuery(window.location.search);
 				}
 		</script>
 		<ConsentBanner client:load />

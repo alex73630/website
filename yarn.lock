@@ -2022,7 +2022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@twemoji/parser@npm:17.0.1":
+"@twemoji/parser@npm:17.0.1, @twemoji/parser@npm:^17.0.1":
   version: 17.0.1
   resolution: "@twemoji/parser@npm:17.0.1"
   checksum: 10c0/2aa34cc7cc4d75011bdaa8c28a5bb1a9cf7a808f27d76f1818b267fc1844c0b2edcf95675776c338a24349e20c2925571e38e5ed734ea0b98a361e104a94dd30
@@ -6494,6 +6494,7 @@ __metadata:
     "@posthog/react": "npm:^1.8.2"
     "@tailwindcss/vite": "npm:^4.2.1"
     "@twemoji/api": "npm:^17.0.2"
+    "@twemoji/parser": "npm:^17.0.1"
     "@twemoji/svg": "npm:^15.0.0"
     "@types/react": "npm:^19.2.14"
     "@types/react-dom": "npm:^19.2.3"

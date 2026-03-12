@@ -1,7 +1,15 @@
 import { parse } from "@twemoji/parser"
 import type { ReactNode } from "react"
 
-export function Twemoji({ children, text }: { children?: string; text?: string }): ReactNode {
+export function Twemoji({
+	children,
+	text,
+	eagerLoading
+}: {
+	children?: string
+	text?: string
+	eagerLoading?: boolean
+}): ReactNode {
 	const content = text ?? children ?? ""
 	const entities = parse(content)
 
@@ -29,6 +37,7 @@ export function Twemoji({ children, text }: { children?: string; text?: string }
 				className="emoji"
 				alt={entity.text}
 				src={`/_astro/twemoji/${filename}`}
+				loading={eagerLoading ? "eager" : "lazy"}
 			/>
 		)
 

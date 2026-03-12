@@ -70,7 +70,12 @@ export function Footer() {
 					<div className="flex max-w-sm flex-col gap-4">
 						<div className="flex items-center gap-3">
 							<div className="bg-otter-pink-200/20 flex items-center justify-center rounded-lg p-1.5">
-								<img src={faviconSvg} alt="Logo" className="h-5 w-5" />
+								<img
+									src={faviconSvg}
+									alt="Logo"
+									className="h-5 w-5"
+									loading="lazy"
+								/>
 							</div>
 							<span className="text-xl font-bold text-white">Alexandre Sanchez</span>
 						</div>

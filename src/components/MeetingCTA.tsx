@@ -7,11 +7,14 @@ function CtaEasterEgg() {
 	if (!isUwuMode) return null
 
 	return (
-		<h2 className="text-3xl leading-tight font-black tracking-tight sm:text-4xl lg:text-5xl">
+		<div
+			className="text-3xl leading-tight font-black tracking-tight sm:text-4xl lg:text-5xl"
+			aria-hidden="true"
+		>
 			<Twemoji>🥺</Twemoji>
 			<br />
 			<Twemoji>👉👈</Twemoji>
-		</h2>
+		</div>
 	)
 }
 
