@@ -10,7 +10,7 @@ import profilImage from "../assets/profil.webp";
 import faviconSvg from "../assets/logo.svg?no-inline";
 
 import PostHog from "../components/PostHog.astro";
-import { CookieBanner } from "../components/CookieBanner";
+import { ConsentBanner } from "../components/ConsentBanner";
 
 interface Props {
   title?: string;
@@ -128,6 +128,6 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 				parseTwemoji();
 				document.addEventListener("astro:page-load", parseTwemoji);
 		</script>
-		<CookieBanner client:load />
+		<ConsentBanner client:load />
 	</body>
 </html>

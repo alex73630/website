@@ -85,7 +85,7 @@ function BannerContent() {
 	)
 }
 
-export function CookieBanner() {
+export function ConsentBanner() {
 	const [client, setClient] = useState<any>(null)
 
 	useEffect(() => {
