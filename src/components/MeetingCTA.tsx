@@ -97,7 +97,7 @@ export function MeetingCTA() {
 
 					<div className="mt-8 flex flex-col gap-4 sm:flex-row">
 						<a
-							href="https://calendar.app.google/8LVqwUPjW6p6XF2U9"
+							href={import.meta.env.PUBLIC_MEET_LINK}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="bg-otter-pink-200 hover:bg-otter-pink-300 focus-visible:ring-otter-pink-200 w-full rounded-3xl px-8 py-4 text-center text-lg font-bold text-[#0b1120] shadow-[0_20px_25px_-5px_rgba(249,169,213,0.25)] transition-colors focus-visible:ring-2 focus-visible:outline-none sm:w-auto"
