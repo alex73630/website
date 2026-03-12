@@ -50,7 +50,7 @@ export function Header() {
 					href={import.meta.env.PUBLIC_MEET_LINK || "/#meet"}
 					className="bg-otter-pink-200 hover:bg-otter-pink-300 focus-visible:ring-otter-pink-200 rounded-2xl px-6 py-2.5 text-center text-sm font-bold text-[#0b1120] shadow-[0_10px_15px_-3px_rgba(249,169,213,0.2)] transition-colors focus-visible:ring-2 focus-visible:outline-none"
 				>
-					Discutons de votre projet
+					Discutons de ton projet
 				</a>
 			</div>
 		</header>

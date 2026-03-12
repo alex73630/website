@@ -34,9 +34,10 @@ export function Hero({ children }: { children?: ReactNode }) {
 
 				{/* Subtitle */}
 				<p className="max-w-2xl text-center text-xl leading-relaxed font-normal text-slate-400 lg:text-left">
+					<Twemoji>10+ ans d'expérience au service des startups.</Twemoji>
+					<br />
 					<Twemoji>
-						10+ ans d'expérience au service des startups. Passionné par l'architecture
-						logicielle, la performance et… les loutres. 🦦
+						Passionné par l'architecture logicielle, la performance et… les loutres 🦦
 					</Twemoji>
 				</p>
 

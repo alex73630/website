@@ -36,12 +36,12 @@ export function MeetingCTA() {
 					<CtaEasterEgg />
 					<p className="max-w-2xl text-lg leading-relaxed font-normal text-slate-300">
 						Un premier échange de 30 minutes en visio, offert et sans engagement.
-						<br /> Que l'on collabore par la suite ou non, l'objectif est de vous
-						apporter de la valeur dès aujourd'hui. <br />
+						<br /> Que l'on collabore par la suite ou non, l'objectif est de t'apporter
+						de la valeur dès aujourd'hui. <br />
 						<br />
 						<Twemoji>
-							👉 Vous venez avec une question ou un blocage, vous repartez avec un
-							plan d'action activable.
+							👉 Tu viens avec une question ou un blocage, tu repars avec un plan
+							d'action activable.
 						</Twemoji>
 					</p>
 
@@ -72,7 +72,7 @@ export function MeetingCTA() {
 
 						<div className="border-otter-pink-200/5 flex flex-col gap-4 rounded-2xl border bg-slate-900/50 p-6">
 							<h3 className="text-otter-pink-200 text-lg font-bold">
-								Ce qu'on vous livre
+								Ce qu'on te livre
 							</h3>
 							<ul className="flex flex-col gap-3 text-slate-300">
 								<li className="flex items-start gap-3">
@@ -89,7 +89,7 @@ export function MeetingCTA() {
 								</li>
 								<li className="flex items-start gap-3">
 									<span className="text-otter-pink-200 mt-1">✓</span>
-									<span>Des outils et ressources adaptés à votre cas.</span>
+									<span>Des outils et ressources adaptés à ton cas.</span>
 								</li>
 							</ul>
 						</div>
