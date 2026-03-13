@@ -84,7 +84,7 @@ export function Expertise() {
 					{expertises.map((item, idx) => (
 						<div
 							key={idx}
-							className="bg-otter-pink-200/5 border-otter-pink-200/10 group hover:bg-otter-pink-200/10 hover:border-otter-pink-200/20 relative flex h-72.5 flex-col items-start rounded-2xl border p-8 transition-all duration-300"
+							className="bg-otter-pink-200/5 border-otter-pink-200/10 group hover:bg-otter-pink-200/10 hover:border-otter-pink-200/20 relative flex min-h-64 flex-col items-start rounded-2xl border p-8 transition-all duration-300"
 						>
 							<div className="bg-otter-pink-200/10 mb-8 flex h-14 w-14 shrink-0 items-center justify-center rounded-[20px]">
 								{item.icon}
