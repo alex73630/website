@@ -6,7 +6,7 @@ For agent-facing architecture rules and file placement conventions, see [docs/ag
 
 ## Stack
 
-- Framework: Astro 5 with React 19 integration
+- Framework: Astro 6 with React 19 integration
 - Styling: Tailwind CSS v4 via `@tailwindcss/vite`
 - Build output: static site generated in Node.js
 - Runtime: static assets served by Nginx

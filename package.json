@@ -1,6 +1,12 @@
 {
 	"name": "website",
 	"version": "0.0.1",
+	"description": "Portfolio website",
+	"license": "MIT",
+	"author": {
+		"name": "Alexandre Sanchez (alex73630)",
+		"url": "https://alex73630.xyz"
+	},
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
