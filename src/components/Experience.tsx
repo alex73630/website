@@ -1,8 +1,13 @@
+import JuisciLogo from "../assets/brands/juisci.svg"
+import NordcloudLogo from "../assets/brands/nordcloud.svg"
+import OrnikarLogo from "../assets/brands/ornikar.svg"
+import ZeliqLogo from "../assets/brands/zeliq.svg"
+
 const experiences = [
-	{ name: "Ornikar", type: "Scale-up" },
-	{ name: "Juisci", type: "MedTech" },
-	{ name: "NordCloud", type: "IBM Group" },
-	{ name: "Leads.fr", type: "AdTech" }
+	{ name: "Zeliq", type: "SalesTech", logo: ZeliqLogo, url: "https://zeliq.com" },
+	{ name: "Ornikar", type: "Scale-up", logo: OrnikarLogo, url: "https://ornikar.com" },
+	{ name: "Juisci", type: "MedTech", logo: JuisciLogo, url: "https://juisci.com" },
+	{ name: "NordCloud", type: "IBM Group", logo: NordcloudLogo, url: "https://nordcloud.com" }
 ]
 
 export function Experience() {
@@ -24,16 +29,24 @@ export function Experience() {
 				</div>
 
 				{/* Logos Grid */}
-				<div className="grid w-full grid-cols-2 gap-8 opacity-80 transition-opacity duration-300 hover:opacity-100 md:grid-cols-4 lg:w-2/3 lg:gap-12">
+				<div className="grid w-full grid-cols-2 items-center gap-8 lg:w-2/3 lg:grid-cols-4 lg:gap-12">
 					{experiences.map((exp, idx) => (
-						<div key={idx} className="flex flex-col items-center justify-center gap-1">
-							<span className="text-xl font-bold text-white lg:text-2xl">
-								{exp.name}
-							</span>
-							<span className="text-otter-pink-200/90 text-[10px] font-normal tracking-wider uppercase lg:text-xs">
+						<a
+							key={idx}
+							href={exp.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="group flex flex-col items-center justify-center gap-3 opacity-80 transition-all duration-300 hover:scale-105 hover:opacity-100"
+						>
+							<img
+								src={exp.logo.src}
+								alt={exp.name}
+								className="h-8 max-w-30 object-contain lg:h-10"
+							/>
+							<span className="text-otter-pink-200/90 text-center text-[10px] font-normal tracking-wider uppercase lg:text-xs">
 								{exp.type}
 							</span>
-						</div>
+						</a>
 					))}
 				</div>
 			</div>

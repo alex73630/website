@@ -1568,6 +1568,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ridemountainpig/svgl-react@npm:^1.0.15":
+  version: 1.0.15
+  resolution: "@ridemountainpig/svgl-react@npm:1.0.15"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0 || ^19.0
+    react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0
+  checksum: 10c0/4b48183caa9e311f5d4a2356e22544df73d74155248a8773e6479e15f0df91c19e4e8175ea0b591b1c2e7b920734b107d9e213043efbd63cea64656714bc0e24
+  languageName: node
+  linkType: hard
+
 "@rolldown/pluginutils@npm:1.0.0-rc.3":
   version: 1.0.0-rc.3
   resolution: "@rolldown/pluginutils@npm:1.0.0-rc.3"
@@ -6492,6 +6502,7 @@ __metadata:
     "@astrojs/sitemap": "npm:3.7.1"
     "@fontsource-variable/ibm-plex-sans": "npm:^5.2.8"
     "@posthog/react": "npm:^1.8.2"
+    "@ridemountainpig/svgl-react": "npm:^1.0.15"
     "@tailwindcss/vite": "npm:^4.2.1"
     "@twemoji/api": "npm:^17.0.2"
     "@twemoji/parser": "npm:^17.0.1"

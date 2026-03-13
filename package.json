@@ -1,6 +1,12 @@
 {
 	"name": "website",
 	"version": "0.0.1",
+	"description": "Portfolio website",
+	"license": "MIT",
+	"author": {
+		"name": "Alexandre Sanchez (alex73630)",
+		"url": "https://alex73630.xyz"
+	},
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
@@ -18,6 +24,7 @@
 		"@astrojs/sitemap": "3.7.1",
 		"@fontsource-variable/ibm-plex-sans": "^5.2.8",
 		"@posthog/react": "^1.8.2",
+		"@ridemountainpig/svgl-react": "^1.0.15",
 		"@tailwindcss/vite": "^4.2.1",
 		"@twemoji/api": "^17.0.2",
 		"@twemoji/parser": "^17.0.1",
