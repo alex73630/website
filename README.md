@@ -10,6 +10,9 @@
     <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
     <img src="https://img.shields.io/badge/Docker-Optimized-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+    <a href="https://railway.com?referralCode=h-EWY1">
+      <img src="https://img.shields.io/badge/Deployed_on-Railway-0B0D17?style=for-the-badge&logo=railway&logoColor=white" alt="Deployed on Railway" />
+    </a>
   </p>
 
   <p>
@@ -83,6 +86,7 @@ This project is built from the ground up to be completely AI-agent friendly and 
 | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="20"> **[React 19](https://react.dev/)**                          | UI Library                      |
 | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" width="20"> **[Tailwind CSS v4](https://tailwindcss.com/)** | Styling                         |
 | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" width="20"> **[Docker](https://www.docker.com/)**                     | Containerization & Optimization |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/railway/railway-original.svg" width="20"> **[Railway](https://railway.com?referralCode=h-EWY1)**  | Deployment & Hosting            |
 | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/yarn/yarn-original.svg" width="20"> **[Yarn 4.x](https://yarnpkg.com/)**                          | Package Manager (via Corepack)  |
 
 ---
