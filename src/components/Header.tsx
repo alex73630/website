@@ -2,6 +2,7 @@ import i18n from "i18next"
 
 import faviconSvg from "../assets/logo.svg?no-inline"
 import { getLocalizedAnchorHref, getLocalizedHref, normalizeLocale } from "../i18n/config"
+import { Twemoji } from "./common/Twemoji"
 
 interface HeaderProps {
 	currentPathname: string
@@ -71,9 +72,13 @@ export function Header({ currentPathname }: HeaderProps) {
 								? t("nav.switchToFrenchLabel")
 								: t("nav.switchToEnglishLabel")
 						}
-						className="border-otter-pink-200/20 hover:border-otter-pink-200/40 hover:bg-otter-pink-200/10 focus-visible:ring-otter-pink-200 rounded-full border px-3 py-2 text-xs font-bold tracking-[0.2em] text-slate-200 uppercase transition-colors focus-visible:ring-2 focus-visible:outline-none"
+						className="border-otter-pink-200/20 hover:border-otter-pink-200/40 hover:bg-otter-pink-200/10 focus-visible:ring-otter-pink-200 rounded-full border px-3 py-2 text-sm leading-none font-bold text-slate-200 uppercase transition-colors focus-visible:ring-2 focus-visible:outline-none"
 					>
-						{nextLocale === "fr" ? t("nav.switchToFrench") : t("nav.switchToEnglish")}
+						<Twemoji>
+							{nextLocale === "fr"
+								? t("nav.switchToFrench")
+								: t("nav.switchToEnglish")}
+						</Twemoji>
 					</a>
 					<a
 						href={import.meta.env.PUBLIC_MEET_LINK}
