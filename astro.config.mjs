@@ -89,7 +89,8 @@ export default defineConfig({
 				targets: [
 					{
 						src: "node_modules/@twemoji/svg/*.svg",
-						dest: "_astro/twemoji"
+						dest: "_astro/twemoji",
+						rename: { stripBase: true }
 					}
 				]
 			})
