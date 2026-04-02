@@ -1,0 +1,18 @@
+{
+	"notFound": {
+		"title": "Oops... This otter got lost at sea.",
+		"description": "The page you are looking for does not exist or has moved. You can still head back somewhere safe.",
+		"cta": "Back to home"
+	},
+	"server": {
+		"title": "Oops... The sea is a little rough right now.",
+		"description": "A temporary error is preventing the website from responding properly. Try again in a moment or head back to the home page.",
+		"cta": "Back to home"
+	},
+	"fallback": {
+		"title": "Page unavailable",
+		"description": "Fallback version. Try the French or English homepage.",
+		"french": "French homepage",
+		"english": "English homepage"
+	}
+}

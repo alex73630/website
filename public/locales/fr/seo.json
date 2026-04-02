@@ -1,0 +1,18 @@
+{
+	"defaultDescription": "Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space. Plus de 10 ans d'expérience au service des startups.",
+	"websiteDescription": "Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space.",
+	"jobTitle": "Expert Backend NodeJS/TypeScript",
+	"home": {
+		"description": "Alexandre Sanchez accompagne les startups avec 10+ ans d'expertise backend, architecture et conseil technique."
+	},
+	"terms": {
+		"title": "Mentions légales",
+		"description": "Mentions légales, informations d'hébergement et politique relative aux cookies pour le site d'Alexandre Sanchez."
+	},
+	"errors": {
+		"notFoundTitle": "Page non trouvée",
+		"notFoundDescription": "La page demandée est introuvable.",
+		"serverTitle": "Erreur temporaire",
+		"serverDescription": "Le site rencontre actuellement un problème temporaire."
+	}
+}

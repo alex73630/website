@@ -1,0 +1,47 @@
+---
+import { getEntry, render } from "astro:content"
+import i18n from "i18next"
+
+import { Footer } from "../../components/Footer"
+import { Header } from "../../components/Header"
+import { buildLocaleStaticPaths, formatLocaleDate, normalizeLocale } from "../../i18n/config"
+import MainLayout from "../../layouts/MainLayout.astro"
+
+export function getStaticPaths() {
+	return buildLocaleStaticPaths()
+}
+
+const locale = normalizeLocale(Astro.params.locale)
+const legalEntry = await getEntry("legal", `${locale}/terms`)
+
+if (!legalEntry) {
+	throw new Error(`Missing legal content entry for locale ${locale}`)
+}
+
+const commonT = i18n.getFixedT(locale, "common")
+const { Content } = await render(legalEntry)
+---
+
+<MainLayout
+	locale={locale}
+	pathname={Astro.url.pathname}
+	title={legalEntry.data.title}
+	description={legalEntry.data.description}
+	noindex={legalEntry.data.noindex}
+>
+	<Header currentPathname={Astro.url.pathname} />
+	<main class="mx-auto max-w-5xl px-6 py-24 sm:py-32">
+		<div class="mb-12 flex flex-col gap-4">
+			<h1 class="text-4xl font-black tracking-tight text-white sm:text-5xl">{legalEntry.data.title}</h1>
+			<p class="max-w-3xl text-base leading-relaxed text-slate-300">{legalEntry.data.description}</p>
+			<p class="text-sm text-slate-400">
+				{commonT("terms.lastUpdatedLabel")} {formatLocaleDate(legalEntry.data.updatedAt, locale)}
+			</p>
+		</div>
+
+		<article class="prose prose-otter prose-invert max-w-none prose-a:no-underline hover:prose-a:text-otter-pink-100 prose-headings:scroll-mt-28">
+			<Content />
+		</article>
+	</main>
+	<Footer />
+</MainLayout>

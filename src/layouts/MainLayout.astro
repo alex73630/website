@@ -1,32 +1,44 @@
 ---
-import { Font } from "astro:assets";
-import '../styles/global.css'
+import { Font } from "astro:assets"
+import i18n from "i18next"
 
-import { SEO } from "astro-seo";
-import { Schema } from "astro-seo-schema";
-import type { Person, ProfilePage, Thing, WebSite, WithContext } from "schema-dts";
+import "../styles/global.css"
 
-import { ClientRouter } from "astro:transitions";
+import { SEO } from "astro-seo"
+import { Schema } from "astro-seo-schema"
+import type { Person, ProfilePage, Thing, WebSite, WithContext } from "schema-dts"
 
-import profilImage from "../assets/profil.webp";
-import faviconSvg from "../assets/logo.svg?no-inline";
+import { ClientRouter } from "astro:transitions"
 
-import PostHog from "../components/common/PostHog.astro";
-import { ConsentBanner } from "../components/ConsentBanner";
+import profilImage from "../assets/profil.webp"
+import faviconSvg from "../assets/logo.svg?no-inline"
+
+import PostHog from "../components/common/PostHog.astro"
+import { ConsentBanner } from "../components/ConsentBanner"
+import {
+	getAbsoluteLocalizedUrl,
+	getLocaleAlternates,
+	languageTags,
+	type Locale
+} from "../i18n/config"
 
 interface Props {
-  title?: string;
-  description?: string;
-  schema?: WithContext<Thing> | WithContext<Thing>[];
+	locale: Locale
+	pathname: string
+	title?: string
+	description?: string
+	noindex?: boolean
+	schema?: WithContext<Thing> | WithContext<Thing>[]
 }
 
-const { 
-	title, 
-	description = `Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space.\nPlus de 10 ans d'expérience au service des startups.`,
-	schema 
-} = Astro.props;
+const { locale, pathname, title, description, noindex = false, schema } = Astro.props
 
-const websiteUrl = "https://alex73630.xyz";
+const seoT = i18n.getFixedT(locale, "seo")
+const resolvedDescription = description ?? seoT("defaultDescription")
+const websiteUrl = "https://alex73630.xyz"
+const languageTag = languageTags[locale]
+const canonicalUrl = getAbsoluteLocalizedUrl(pathname, locale)
+const alternates = getLocaleAlternates(pathname)
 
 const personSchema: WithContext<Person> = {
 	"@context": "https://schema.org",
@@ -34,32 +46,32 @@ const personSchema: WithContext<Person> = {
 	"@id": `${websiteUrl}/#person`,
 	name: "Alexandre Sanchez",
 	url: websiteUrl,
-	jobTitle: "Expert Backend NodeJS/TypeScript",
-	description: "Alexandre Sanchez - Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space. Plus de 10 ans d'expérience au service des startups.",
+	jobTitle: seoT("jobTitle"),
+	description: resolvedDescription,
 	image: `${websiteUrl}${profilImage.src}`,
 	worksFor: {
 		"@type": "Organization",
 		name: "Otterly Space"
 	},
 	sameAs: [
-		"https://bsky.app/profile/alex73630.xyz", // Bluesky
+		"https://bsky.app/profile/alex73630.xyz",
 		"https://twitter.com/alex73630",
 		"https://github.com/alex73630",
 		"https://www.linkedin.com/in/alex-otterly/"
 	]
-};
+}
 
 const profilePageSchema: WithContext<ProfilePage> = {
 	"@context": "https://schema.org",
 	"@type": "ProfilePage",
-	"@id": `${websiteUrl}/#webpage`,
-	url: websiteUrl,
-	name: title ? `${title} - Alexandre Sanchez` : "Alexandre Sanchez - Expert Backend NodeJS/TypeScript",
-	description: description,
+	"@id": `${canonicalUrl}#webpage`,
+	url: canonicalUrl,
+	name: title ? `${title} - Alexandre Sanchez` : "Alexandre Sanchez",
+	description: resolvedDescription,
 	mainEntity: {
 		"@id": `${websiteUrl}/#person`
 	}
-};
+}
 
 const webSiteSchema: WithContext<WebSite> = {
 	"@context": "https://schema.org",
@@ -67,33 +79,48 @@ const webSiteSchema: WithContext<WebSite> = {
 	"@id": `${websiteUrl}/#website`,
 	url: websiteUrl,
 	name: "Alexandre Sanchez",
-	description: "Expert Backend NodeJS/TypeScript & Fondateur d'Otterly Space.",
-	inLanguage: "fr-FR",
+	description: seoT("websiteDescription"),
+	inLanguage: languageTag,
 	publisher: {
 		"@id": `${websiteUrl}/#person`
 	}
-};
+}
 
-const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
+const schemas = [
+	personSchema,
+	profilePageSchema,
+	webSiteSchema,
+	...(Array.isArray(schema) ? schema : schema ? [schema] : [])
+]
 ---
-<html lang="fr" class="not-motion-reduce:scroll-smooth">
+<html lang={languageTag} class="not-motion-reduce:scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<Font cssVariable="--font-ibm-plex" preload />
 		<SEO
 			title={title}
-			titleTemplate='%s - Alexandre Sanchez'
-			titleDefault='Alexandre Sanchez'
-			description={description}
+			titleTemplate="%s - Alexandre Sanchez"
+			titleDefault="Alexandre Sanchez"
+			description={resolvedDescription}
 			twitter={{
 				creator: "@alex73630",
 				card: "summary",
 				title: title ? `${title} - Alexandre Sanchez` : "Alexandre Sanchez",
-				description: description
+				description: resolvedDescription
 			}}
 			extend={{
-				meta: [{ name: "generator", content: Astro.generator }, { name: "viewport", content: "width=device-width" }],
-				link: [{ rel: "sitemap", href: "/sitemap-index.xml" }],
+				meta: [
+					{ name: "generator", content: Astro.generator },
+					{ name: "viewport", content: "width=device-width" },
+					...(noindex ? [{ name: "robots", content: "noindex, nofollow" }] : [])
+				],
+				link: [
+					{ rel: "canonical", href: canonicalUrl },
+					{ rel: "alternate", hreflang: "fr", href: alternates.fr },
+					{ rel: "alternate", hreflang: "en", href: alternates.en },
+					{ rel: "alternate", hreflang: "x-default", href: alternates.fr },
+					{ rel: "sitemap", href: "/sitemap-index.xml" }
+				],
 			}}
 		/>
 
@@ -118,63 +145,78 @@ const schemas = [personSchema, profilePageSchema, webSiteSchema, ...(Array.isArr
 		</div>
 		<slot />
 		<script>
-				import twemoji from "@twemoji/api";
+				import twemoji from "@twemoji/api"
 
 				function parseTwemoji() {
 						twemoji.parse(document.body, {
-								base: '',
-								folder: '/_astro/twemoji',
-								ext: '.svg'
-						});
+								base: "",
+								folder: "/_astro/twemoji",
+								ext: ".svg"
+						})
 				}
 
 				function updateUwuModeFromQuery(search: string) {
-						if (typeof document === "undefined") return;
+						if (typeof document === "undefined") return
 
-						const params = new URLSearchParams(search || "");
-						const value = params.get("uwu");
-						const root = document.documentElement;
+						const params = new URLSearchParams(search || "")
+						const value = params.get("uwu")
+						const hasUwu = params.has("uwu")
+						const root = document.documentElement
 
-						// If the parameter is absent, ensure uwu-mode is removed.
-						if (value === null) {
-								root.classList.remove("uwu-mode");
-								return;
+						if (
+							hasUwu &&
+							(value === "false" || value === "0" || value === "null")
+						) {
+							sessionStorage.removeItem("uwuMode")
+								root.classList.remove("uwu-mode")
+								return
 						}
 
-						const normalized = value.trim().toLowerCase();
+						if (hasUwu || sessionStorage.getItem("uwuMode") === "true") {
+							if (hasUwu) sessionStorage.setItem("uwuMode", "true")
+							root.classList.add("uwu-mode")
+							return
+						}
+
+						if (value === null) {
+							root.classList.remove("uwu-mode")
+							return
+						}
+
+						const normalized = value.trim().toLowerCase()
 						const enabled =
 								normalized === "" ||
 								normalized === "1" ||
 								normalized === "true" ||
-								normalized === "yes";
+								normalized === "yes"
 
-						// Explicit disabling values
 						if (
 								normalized === "0" ||
 								normalized === "false" ||
 								normalized === "null" ||
 								normalized === "no"
 						) {
-								root.classList.remove("uwu-mode");
-								return;
+							sessionStorage.removeItem("uwuMode")
+								root.classList.remove("uwu-mode")
+								return
 						}
 
-						root.classList.toggle("uwu-mode", enabled);
+						if (hasUwu) sessionStorage.setItem("uwuMode", "true")
+						root.classList.toggle("uwu-mode", enabled)
 				}
 
-				parseTwemoji();
+				parseTwemoji()
 				document.addEventListener("astro:page-load", () => {
-						parseTwemoji();
+						parseTwemoji()
 						if (typeof window !== "undefined") {
-								updateUwuModeFromQuery(window.location.search);
+								updateUwuModeFromQuery(window.location.search)
 						}
-				});
+				})
 
-				// Easter egg handling for CSS on initial load
 				if (typeof window !== "undefined") {
-						updateUwuModeFromQuery(window.location.search);
+						updateUwuModeFromQuery(window.location.search)
 				}
 		</script>
-		<ConsentBanner client:load />
+		<ConsentBanner client:only="react" locale={locale} />
 	</body>
 </html>

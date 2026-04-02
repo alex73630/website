@@ -1,0 +1,70 @@
+---
+import { Picture, getImage } from "astro:assets"
+import i18n from "i18next"
+
+import { ContentSection } from "../../components/ContentSection"
+import { Experience } from "../../components/Experience"
+import { Expertise } from "../../components/Expertise"
+import { Footer } from "../../components/Footer"
+import { Header } from "../../components/Header"
+import { Hero } from "../../components/Hero"
+import { MeetingCTA } from "../../components/MeetingCTA"
+import profilImage from "../../assets/profil.webp"
+import twitchClipAvif from "../../assets/twitch_clip.avif"
+import twitchClipFallback from "../../assets/twitch_clip_fallback.webp"
+import { buildLocaleStaticPaths, normalizeLocale } from "../../i18n/config"
+import MainLayout from "../../layouts/MainLayout.astro"
+
+export function getStaticPaths() {
+	return buildLocaleStaticPaths()
+}
+
+const locale = normalizeLocale(Astro.params.locale)
+const commonT = i18n.getFixedT(locale, "common")
+const seoT = i18n.getFixedT(locale, "seo")
+
+const fallbackImage = await getImage({
+	src: twitchClipFallback,
+	widths: [320, 640, twitchClipFallback.width],
+	format: "webp"
+})
+---
+
+<MainLayout locale={locale} pathname={Astro.url.pathname} description={seoT("home.description")}>
+	<Header currentPathname={Astro.url.pathname} />
+	<main>
+		<Hero>
+			<Picture
+				src={profilImage}
+				formats={["avif", "webp"]}
+				fallbackFormat="webp"
+				alt={commonT("hero.profileAlt")}
+				widths={[360, 480, 540, 600, 800]}
+				sizes="(max-width: 1024px) 100vw, 448px"
+				class="h-full w-full object-cover opacity-70 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-80"
+				fetchpriority="high"
+				loading="eager"
+			/>
+		</Hero>
+		<Expertise />
+		<Experience />
+		<ContentSection>
+			<picture>
+				<source srcset={twitchClipAvif.src} type="image/avif" media="(prefers-reduced-motion: no-preference)" />
+				<source
+					srcset={fallbackImage.srcSet.attribute}
+					sizes="(max-width: 1024px) 100vw, 50vw"
+					type="image/webp"
+				/>
+				<img
+					src={fallbackImage.src}
+					{...fallbackImage.attributes}
+					alt={commonT("contentSection.twitchPreviewAlt")}
+					class="absolute inset-0 h-full w-full object-cover opacity-60 transition-opacity group-hover:opacity-80"
+				/>
+			</picture>
+		</ContentSection>
+		<MeetingCTA locale={locale} />
+	</main>
+	<Footer />
+</MainLayout>

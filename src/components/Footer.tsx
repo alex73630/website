@@ -1,4 +1,7 @@
+import i18n from "i18next"
+
 import faviconSvg from "../assets/logo.svg?no-inline"
+import { getCurrentYear, getLocalizedHref, normalizeLocale } from "../i18n/config"
 import { Bluesky, GitHub, LinkedIn, Twitch, Twitter } from "./common/icons"
 import { Twemoji } from "./common/Twemoji"
 
@@ -26,6 +29,10 @@ const LocationIcon = (
 )
 
 export function Footer() {
+	const locale = normalizeLocale(i18n.resolvedLanguage ?? i18n.language)
+	const t = i18n.getFixedT(locale, "common")
+	const termsHref = getLocalizedHref("/terms", locale)
+
 	return (
 		<footer
 			id="contact"
@@ -40,33 +47,31 @@ export function Footer() {
 							<div className="bg-otter-pink-200/20 flex items-center justify-center rounded-lg p-1.5">
 								<img
 									src={faviconSvg}
-									alt="Logo"
+									alt={t("brand.logoAlt")}
 									className="h-5 w-5"
 									loading="lazy"
 								/>
 							</div>
-							<span className="text-xl font-bold text-white">Alexandre Sanchez</span>
+							<span className="text-xl font-bold text-white">{t("brand.name")}</span>
 						</div>
-						<p className="text-base font-normal text-slate-400">
-							Architecte de solutions backend & passionné d'écosystèmes robustes.
-						</p>
+						<p className="text-base font-normal text-slate-400">{t("footer.bio")}</p>
 					</div>
 
 					{/* Location */}
 					<div className="flex flex-col gap-4">
 						<span className="text-otter-pink-200 text-sm font-bold tracking-[1.4px] uppercase">
-							Localisation
+							{t("footer.locationLabel")}
 						</span>
 						<div className="flex items-center gap-2 text-slate-400">
 							{LocationIcon}
-							<span>Annecy, France</span>
+							<span>{t("footer.location")}</span>
 						</div>
 					</div>
 
 					{/* Socials */}
 					<div className="flex flex-col gap-4">
 						<span className="text-otter-pink-200 text-sm font-bold tracking-[1.4px] uppercase">
-							Réseaux
+							{t("footer.socialsLabel")}
 						</span>
 						<div className="flex items-center gap-4 text-slate-400">
 							<a
@@ -119,7 +124,7 @@ export function Footer() {
 					{/* Showcase */}
 					<div className="flex flex-col gap-4">
 						<span className="text-otter-pink-200 text-sm font-bold tracking-[1.4px] uppercase">
-							Open Source
+							{t("footer.openSourceLabel")}
 						</span>
 						<a
 							href="https://github.com/alex73630/website"
@@ -128,7 +133,7 @@ export function Footer() {
 							className="hover:text-otter-pink-200 flex items-center gap-2 text-slate-400 transition-colors"
 						>
 							<GitHub currentColor className="h-5 w-5" />
-							<span className="text-sm font-medium">Code source du site</span>
+							<span className="text-sm font-medium">{t("brand.sourceCode")}</span>
 						</a>
 					</div>
 				</div>
@@ -136,7 +141,7 @@ export function Footer() {
 				{/* Bottom border & Credits */}
 				<div className="border-otter-pink-200/5 flex flex-col items-center justify-between gap-4 border-t pt-8 lg:flex-row">
 					<p className="m-0 text-center text-sm font-normal text-slate-400 lg:text-left">
-						<Twemoji>Fait avec ❤️ & 🦦 par</Twemoji>{" "}
+						<Twemoji>{t("footer.madeWith")}</Twemoji>{" "}
 						<a
 							href="https://otterly.space"
 							className="text-otter-pink-200 hover:text-otter-pink-300 font-bold transition-colors"
@@ -146,14 +151,14 @@ export function Footer() {
 					</p>
 					<div className="flex flex-col items-center gap-2 lg:flex-row lg:gap-4 lg:text-right">
 						<a
-							href="/terms"
+							href={termsHref}
 							className="hover:text-otter-pink-200 text-sm font-normal text-slate-400 transition-colors"
 						>
-							Mentions légales
+							{t("footer.legal")}
 						</a>
 						<span className="hidden text-slate-600 lg:inline">•</span>
 						<p className="m-0 text-center text-sm font-normal text-slate-400">
-							© 2026 Alexandre Sanchez
+							{t("footer.copyright", { year: getCurrentYear() })}
 						</p>
 					</div>
 				</div>
