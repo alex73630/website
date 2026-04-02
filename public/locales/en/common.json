@@ -1,0 +1,120 @@
+{
+	"brand": {
+		"name": "Alexandre Sanchez",
+		"logoAlt": "Alexandre Sanchez logo",
+		"sourceCode": "Website source code"
+	},
+	"nav": {
+		"expertise": "Expertise",
+		"experience": "Experience",
+		"content": "Content",
+		"contact": "Contact",
+		"switchToFrench": "🇫🇷",
+		"switchToEnglish": "🇬🇧",
+		"switchToFrenchLabel": "Passer à la version française",
+		"switchToEnglishLabel": "Switch to the English version"
+	},
+	"header": {
+		"cta": "Let's talk about your project"
+	},
+	"hero": {
+		"availability": "Available for new projects",
+		"titleLead": "Backend expert",
+		"titleTech": "NodeJS/TypeScript",
+		"titleFounder": "& Founder",
+		"titleCompany": "of Otterly Space",
+		"subtitleLead": "10+ years of experience helping startups scale.",
+		"subtitleBody": "Passionate about software architecture, performance, and… otters 🦦",
+		"primaryCta": "Book a call with me",
+		"secondaryCta": "Discover Otterly Space",
+		"profileAlt": "Portrait of Alexandre Sanchez"
+	},
+	"expertise": {
+		"title": "Technical expertise",
+		"description": "Solid foundations for your most demanding web and mobile applications.",
+		"items": [
+			{
+				"title": "Backend engineering (Node/TS)",
+				"description": "Robust, scalable development with TypeScript, NestJS, Express, and many other frameworks, with a strong focus on maintainability and testing."
+			},
+			{
+				"title": "Architecture & DevOps",
+				"description": "Cloud or on-premise infrastructure setup, continuous delivery with GitHub Actions, and container-first deployment workflows."
+			},
+			{
+				"title": "Advisory & audits",
+				"description": "Performance audits, code reviews, and strategic guidance to support your technical decisions."
+			}
+		]
+	},
+	"experience": {
+		"stat": "10+ years",
+		"label": "of experience",
+		"description": "Supporting fast-growing startups (Series A/B/C) on critical product and platform challenges.",
+		"items": [
+			{
+				"type": "SalesTech"
+			},
+			{
+				"type": "Scale-up"
+			},
+			{
+				"type": "MedTech"
+			},
+			{
+				"type": "IBM Group"
+			}
+		]
+	},
+	"contentSection": {
+		"liveTitle": "Let's build in public, live!",
+		"liveDescription": "Join me on Twitch for live coding sessions.",
+		"titleLead": "Follow my",
+		"titleTail": "technical adventures",
+		"description": "I regularly share my day-to-day developer work, what I discover in NodeJS, and the open-source tools I rely on the most.",
+		"githubLabel": "GitHub",
+		"githubHandle": "@alex73630",
+		"twitchPreviewAlt": "Preview of a Twitch livestream"
+	},
+	"meeting": {
+		"title": "A meeting",
+		"titleAccent": "with me",
+		"description": "A free, no-strings-attached 30-minute video call.",
+		"descriptionBody": "Whether we end up working together or not, the goal is to create value for you from day one.",
+		"descriptionOutcome": "👉 You bring a question or a blocker, and you leave with an actionable plan.",
+		"topicsTitle": "Examples of topics",
+		"topics": [
+			"Choosing the right stack or platform.",
+			"Prioritizing an MVP or unblocking a complex bug.",
+			"Designing a resilient backend architecture.",
+			"Code audits and performance recommendations."
+		],
+		"deliverablesTitle": "What you leave with",
+		"deliverables": [
+			"A concise summary of our conversation.",
+			"A prioritized action list.",
+			"Clear, well-reasoned recommendations.",
+			"Tools and resources tailored to your situation."
+		],
+		"primaryCta": "Book a slot online",
+		"secondaryCta": "Discover my team"
+	},
+	"footer": {
+		"bio": "Backend solutions architect with a passion for resilient platforms.",
+		"locationLabel": "Location",
+		"location": "Annecy, France",
+		"socialsLabel": "Socials",
+		"openSourceLabel": "Open source",
+		"madeWith": "Made with ❤️ & 🦦 by",
+		"legal": "Legal notice",
+		"copyright": "© {{year}} Alexandre Sanchez"
+	},
+	"terms": {
+		"lastUpdatedLabel": "Last updated on"
+	},
+	"consent": {
+		"message": "We use analytics cookies to understand how you interact with our website and improve it. You can accept or decline them.",
+		"reject": "Decline",
+		"accept": "Accept"
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"notFound": {
+		"title": "Oups... Cette loutre s'est perdue en mer.",
+		"description": "La page que tu recherches n'existe pas ou a été déplacée. Mais ne t'inquiète pas, tu peux toujours retourner en lieu sûr.",
+		"cta": "Retour à l'accueil"
+	},
+	"server": {
+		"title": "Oups... La mer est un peu agitée.",
+		"description": "Une erreur temporaire empêche le site de répondre correctement. Réessaie dans quelques instants ou retourne sur la page d'accueil.",
+		"cta": "Retour à l'accueil"
+	},
+	"fallback": {
+		"title": "Page indisponible",
+		"description": "Version de secours. Essaie l'accueil en français ou en anglais.",
+		"french": "Accueil français",
+		"english": "Home in English"
+	}
+}

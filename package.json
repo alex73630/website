@@ -20,11 +20,13 @@
 		"prepare": "husky"
 	},
 	"dependencies": {
+		"@astrojs/mdx": "^5.0.3",
 		"@astrojs/react": "5.0.0",
 		"@astrojs/sitemap": "3.7.1",
 		"@fontsource-variable/ibm-plex-sans": "^5.2.8",
 		"@posthog/react": "^1.8.2",
 		"@ridemountainpig/svgl-react": "^1.0.15",
+		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.2.1",
 		"@twemoji/api": "^17.0.2",
 		"@twemoji/parser": "^17.0.1",
@@ -32,11 +34,14 @@
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"astro": "6.0.4",
+		"astro-react-i18next": "^0.3.4",
 		"astro-seo": "^1.1.0",
 		"astro-seo-schema": "^5.2.0",
+		"i18next": "^25.10.10",
 		"posthog-js": "^1.360.1",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
+		"react-i18next": "^16.6.6",
 		"tailwindcss": "^4.2.1"
 	},
 	"devDependencies": {

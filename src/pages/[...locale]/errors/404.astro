@@ -1,12 +1,16 @@
 ---
 import i18n from "i18next"
 
-import { Footer } from "../components/Footer"
-import { Header } from "../components/Header"
-import { getLocalizedHref } from "../i18n/config"
-import MainLayout from "../layouts/MainLayout.astro"
+import { Footer } from "../../../components/Footer"
+import { Header } from "../../../components/Header"
+import { buildLocaleStaticPaths, getLocalizedHref, normalizeLocale } from "../../../i18n/config"
+import MainLayout from "../../../layouts/MainLayout.astro"
 
-const locale = "fr"
+export function getStaticPaths() {
+	return buildLocaleStaticPaths()
+}
+
+const locale = normalizeLocale(Astro.params.locale)
 const errorsT = i18n.getFixedT(locale, "errors")
 const seoT = i18n.getFixedT(locale, "seo")
 const homeHref = getLocalizedHref("/", locale)
@@ -14,12 +18,12 @@ const homeHref = getLocalizedHref("/", locale)
 
 <MainLayout
 	locale={locale}
-	pathname="/404"
+	pathname={Astro.url.pathname}
 	title={seoT("errors.notFoundTitle")}
 	description={seoT("errors.notFoundDescription")}
 	noindex
 >
-	<Header currentPathname="/errors/404" />
+	<Header currentPathname={Astro.url.pathname} />
 	<main class="flex min-h-[70vh] flex-col items-center justify-center px-6 py-24 text-center">
 		<div class="relative">
 			<div class="pointer-events-none absolute -top-12 left-1/2 z-0 h-64 w-64 -translate-x-1/2 rounded-full bg-otter-pink-200/20 blur-[80px]"></div>

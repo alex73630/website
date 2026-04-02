@@ -1,5 +1,7 @@
+import i18n from "i18next"
 import type { ReactNode } from "react"
 
+import { normalizeLocale } from "../i18n/config"
 import { GitHub } from "./common/icons"
 
 const ContentSectionArrowIcon = (
@@ -16,6 +18,9 @@ const ContentSectionArrowIcon = (
 )
 
 export function ContentSection({ children }: { children?: ReactNode }) {
+	const locale = normalizeLocale(i18n.resolvedLanguage ?? i18n.language)
+	const t = i18n.getFixedT(locale, "common")
+
 	return (
 		<section
 			id="contenus"
@@ -38,11 +43,11 @@ export function ContentSection({ children }: { children?: ReactNode }) {
 							<div className="flex items-center gap-3">
 								<div className="h-3 w-3 animate-pulse rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.7)]"></div>
 								<h3 className="text-xl font-bold text-white lg:text-2xl">
-									On code ensemble en direct!
+									{t("contentSection.liveTitle")}
 								</h3>
 							</div>
 							<p className="max-w-[90%] text-sm font-normal text-slate-300 lg:text-base">
-								Retrouve-moi sur Twitch pour des sessions de live coding.
+								{t("contentSection.liveDescription")}
 							</p>
 						</div>
 					</div>
@@ -52,12 +57,11 @@ export function ContentSection({ children }: { children?: ReactNode }) {
 			{/* Texts & Github Link */}
 			<div className="flex w-full flex-col justify-center lg:w-1/2">
 				<h2 className="mb-6 text-3xl leading-tight font-bold text-white lg:text-[40px]">
-					Suis mes aventures
-					<br className="hidden lg:block" /> techniques
+					{t("contentSection.titleLead")}
+					<br className="hidden lg:block" /> {t("contentSection.titleTail")}
 				</h2>
 				<p className="mb-8 text-base leading-relaxed font-normal text-slate-400 lg:text-lg">
-					Je partage régulièrement mon quotidien de développeur, mes découvertes sur
-					NodeJS et mes outils préférés en open-source.
+					{t("contentSection.description")}
 				</p>
 
 				<a
@@ -72,10 +76,10 @@ export function ContentSection({ children }: { children?: ReactNode }) {
 						</div>
 						<div className="flex flex-col">
 							<span className="text-base font-bold text-slate-100 transition-colors group-hover:text-white">
-								GitHub
+								{t("contentSection.githubLabel")}
 							</span>
 							<span className="text-sm font-normal text-slate-400 transition-colors group-hover:text-slate-300">
-								@alex73630
+								{t("contentSection.githubHandle")}
 							</span>
 						</div>
 					</div>
