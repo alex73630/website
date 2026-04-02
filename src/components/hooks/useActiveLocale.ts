@@ -26,5 +26,5 @@ export function useActiveLocale(locale: Locale) {
 		}
 	}, [])
 
-	return activeLocale === locale ? activeLocale : locale
+	return activeLocale
 }
