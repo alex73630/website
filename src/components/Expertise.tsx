@@ -1,8 +1,9 @@
-const expertises = [
+import i18n from "i18next"
+
+import { normalizeLocale } from "../i18n/config"
+
+const expertiseIcons = [
 	{
-		title: "Expert Backend Dev (Node/TS)",
-		description:
-			"Développement robuste et scalable utilisant TypeScript, NestJS, Express et bien d'autres frameworks. Focus sur la maintenabilité et les tests.",
 		icon: (
 			<svg
 				aria-hidden="true"
@@ -21,9 +22,6 @@ const expertises = [
 		)
 	},
 	{
-		title: "Architecture & DevOps",
-		description:
-			"Mise en place d'infrastructures cloud (AWS/GCP) ou on-premise, déploiement continu via GitHub Actions et Dockerisation.",
 		icon: (
 			<svg
 				aria-hidden="true"
@@ -42,9 +40,6 @@ const expertises = [
 		)
 	},
 	{
-		title: "Conseil & Audit",
-		description:
-			"Audit de performances, revue de code, et accompagnement stratégique pour tes choix technologiques.",
 		icon: (
 			<svg
 				className="text-otter-pink-200 h-6 w-6"
@@ -65,29 +60,35 @@ const expertises = [
 ]
 
 export function Expertise() {
+	const locale = normalizeLocale(i18n.resolvedLanguage ?? i18n.language)
+	const t = i18n.getFixedT(locale, "common")
+	const expertiseItems = t("expertise.items", { returnObjects: true }) as Array<{
+		title: string
+		description: string
+	}>
+
 	return (
 		<section id="expertise" className="border-otter-pink-200/5 relative w-full border-t">
 			<div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-12 lg:gap-16 lg:py-32">
 				{/* Header */}
 				<div className="flex flex-col items-center gap-4">
 					<h2 className="text-center text-3xl leading-tight font-bold text-white lg:text-[40px]">
-						Expertise Technique
+						{t("expertise.title")}
 					</h2>
 					<p className="max-w-2xl text-center text-base font-normal text-slate-400 lg:text-lg">
-						Des fondations solides pour tes applications web et mobile les plus
-						exigeantes.
+						{t("expertise.description")}
 					</p>
 				</div>
 
 				{/* Grid */}
 				<div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-					{expertises.map((item, idx) => (
+					{expertiseItems.map((item, idx) => (
 						<div
 							key={idx}
 							className="bg-otter-pink-200/5 border-otter-pink-200/10 group hover:bg-otter-pink-200/10 hover:border-otter-pink-200/20 relative flex min-h-64 flex-col items-start rounded-2xl border p-8 transition-all duration-300"
 						>
 							<div className="bg-otter-pink-200/10 mb-8 flex h-14 w-14 shrink-0 items-center justify-center rounded-[20px]">
-								{item.icon}
+								{expertiseIcons[idx]?.icon}
 							</div>
 							<h3 className="mb-4 text-xl font-bold text-slate-100">{item.title}</h3>
 							<p className="text-base leading-relaxed font-normal text-slate-400">

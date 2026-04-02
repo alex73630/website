@@ -1,0 +1,120 @@
+{
+	"brand": {
+		"name": "Alexandre Sanchez",
+		"logoAlt": "Logo d'Alexandre Sanchez",
+		"sourceCode": "Code source du site"
+	},
+	"nav": {
+		"expertise": "Expertise",
+		"experience": "Expérience",
+		"content": "Contenus",
+		"contact": "Contact",
+		"switchToFrench": "🇫🇷",
+		"switchToEnglish": "🇬🇧",
+		"switchToFrenchLabel": "Basculer vers la version française",
+		"switchToEnglishLabel": "Basculer vers la version anglaise"
+	},
+	"header": {
+		"cta": "Discutons de ton projet"
+	},
+	"hero": {
+		"availability": "Disponible pour de nouvelles missions",
+		"titleLead": "Expert Backend",
+		"titleTech": "NodeJS/TypeScript",
+		"titleFounder": "& Fondateur",
+		"titleCompany": "d'Otterly Space",
+		"subtitleLead": "10+ ans d'expérience au service des startups.",
+		"subtitleBody": "Passionné par l'architecture logicielle, la performance et… les loutres 🦦",
+		"primaryCta": "Discuter avec moi",
+		"secondaryCta": "Découvrir Otterly Space",
+		"profileAlt": "Portrait d'Alexandre Sanchez"
+	},
+	"expertise": {
+		"title": "Expertise technique",
+		"description": "Des fondations solides pour tes applications web et mobile les plus exigeantes.",
+		"items": [
+			{
+				"title": "Expert Backend Dev (Node/TS)",
+				"description": "Développement robuste et scalable utilisant TypeScript, NestJS, Express et bien d'autres frameworks. Focus sur la maintenabilité et les tests."
+			},
+			{
+				"title": "Architecture & DevOps",
+				"description": "Mise en place d'infrastructures cloud (AWS/GCP) ou on-premise, déploiement continu via GitHub Actions et dockerisation."
+			},
+			{
+				"title": "Conseil & Audit",
+				"description": "Audit de performances, revue de code et accompagnement stratégique pour tes choix technologiques."
+			}
+		]
+	},
+	"experience": {
+		"stat": "10+ ans",
+		"label": "d'expérience",
+		"description": "Accompagnement de startups en phase de croissance (Series A/B/C) sur des problématiques critiques.",
+		"items": [
+			{
+				"type": "SalesTech"
+			},
+			{
+				"type": "Scale-up"
+			},
+			{
+				"type": "MedTech"
+			},
+			{
+				"type": "IBM Group"
+			}
+		]
+	},
+	"contentSection": {
+		"liveTitle": "On code ensemble en direct !",
+		"liveDescription": "Retrouve-moi sur Twitch pour des sessions de live coding.",
+		"titleLead": "Suis mes aventures",
+		"titleTail": "techniques",
+		"description": "Je partage régulièrement mon quotidien de développeur, mes découvertes sur NodeJS et mes outils préférés en open source.",
+		"githubLabel": "GitHub",
+		"githubHandle": "@alex73630",
+		"twitchPreviewAlt": "Aperçu d'un live Twitch"
+	},
+	"meeting": {
+		"title": "Un rendez-vous",
+		"titleAccent": "avec moi",
+		"description": "Un premier échange de 30 minutes en visio, offert et sans engagement.",
+		"descriptionBody": "Que l'on collabore par la suite ou non, l'objectif est de t'apporter de la valeur dès aujourd'hui.",
+		"descriptionOutcome": "👉 Tu viens avec une question ou un blocage, tu repars avec un plan d'action activable.",
+		"topicsTitle": "Exemples de sujets",
+		"topics": [
+			"Choisir la bonne stack ou plateforme.",
+			"Prioriser un MVP ou débloquer un bug complexe.",
+			"Structurer une architecture backend robuste.",
+			"Audit de code et recommandations de performance."
+		],
+		"deliverablesTitle": "Ce qu'on te livre",
+		"deliverables": [
+			"Un compte-rendu synthétique de notre échange.",
+			"Une liste d'actions priorisées.",
+			"Des recommandations claires et argumentées.",
+			"Des outils et ressources adaptés à ton cas."
+		],
+		"primaryCta": "Prendre un créneau en ligne",
+		"secondaryCta": "Découvrir avec mon équipe"
+	},
+	"footer": {
+		"bio": "Architecte de solutions backend & passionné d'écosystèmes robustes.",
+		"locationLabel": "Localisation",
+		"location": "Annecy, France",
+		"socialsLabel": "Réseaux",
+		"openSourceLabel": "Open source",
+		"madeWith": "Fait avec ❤️ & 🦦 par",
+		"legal": "Mentions légales",
+		"copyright": "© {{year}} Alexandre Sanchez"
+	},
+	"terms": {
+		"lastUpdatedLabel": "Dernière mise à jour le"
+	},
+	"consent": {
+		"message": "Nous utilisons des cookies analytiques pour comprendre comment tu interagis avec notre site et l'améliorer. Tu peux choisir de les accepter ou de les refuser.",
+		"reject": "Refuser",
+		"accept": "Accepter"
+	}
+}

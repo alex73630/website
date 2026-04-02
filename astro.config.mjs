@@ -1,7 +1,10 @@
 // @ts-check
+import "./src/i18n/bootstrap.ts"
+import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import sitemap from "@astrojs/sitemap"
 import tailwindcss from "@tailwindcss/vite"
+import reactI18next from "astro-react-i18next"
 import { defineConfig, fontProviders } from "astro/config"
 import { viteStaticCopy } from "vite-plugin-static-copy"
 
@@ -41,6 +44,14 @@ export default defineConfig({
 				plugins: ["babel-plugin-react-compiler"]
 			}
 		}),
+		mdx(),
+		reactI18next({
+			defaultLocale: "fr",
+			locales: ["fr", "en"],
+			defaultNamespace: "common",
+			namespaces: ["common", "seo", "errors"],
+			prefixDefaultLocale: false
+		}),
 		sitemap()
 	],
 	vite: {
@@ -78,7 +89,8 @@ export default defineConfig({
 				targets: [
 					{
 						src: "node_modules/@twemoji/svg/*.svg",
-						dest: "_astro/twemoji"
+						dest: "_astro/twemoji",
+						rename: { stripBase: true }
 					}
 				]
 			})

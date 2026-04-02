@@ -1,11 +1,20 @@
 import { PostHogProvider, usePostHog } from "@posthog/react"
+import i18n from "i18next"
 import { useState, useEffect } from "react"
+
+import type { Locale } from "../i18n/config"
+import { useActiveLocale } from "./hooks/useActiveLocale"
 
 // Read the mode. We use process.env mapping or import.meta.env if bundled by Vite.
 // Astro will replace import.meta.env dynamically.
 const cookieMode = import.meta.env.PUBLIC_POSTHOG_COOKIE_MODE || "on_reject"
 
-function BannerContent() {
+interface ConsentBannerProps {
+	locale: Locale
+}
+
+function BannerContent({ locale }: { locale: Locale }) {
+	const t = i18n.getFixedT(locale, "common")
 	const ph = usePostHog()
 	const [consentGiven, setConsentGiven] = useState<string | null>(null)
 
@@ -59,24 +68,21 @@ function BannerContent() {
 	return (
 		<div className="border-otter-pink-200/20 fixed right-0 bottom-0 left-0 z-50 border-t bg-[#0b1120]/95 p-4 shadow-[0_-4px_20px_rgba(249,169,213,0.1)] backdrop-blur-md">
 			<div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
-				<p className="text-sm text-slate-300">
-					Nous utilisons des cookies analytiques pour comprendre comment tu interagis avec
-					notre site et l'améliorer. Tu peux choisir de les accepter ou de les refuser.
-				</p>
+				<p className="text-sm text-slate-300">{t("consent.message")}</p>
 				<div className="flex shrink-0 gap-3">
 					<button
 						type="button"
 						onClick={handleDeclineCookies}
 						className="cursor-pointer rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-800"
 					>
-						Refuser
+						{t("consent.reject")}
 					</button>
 					<button
 						type="button"
 						onClick={handleAcceptCookies}
 						className="bg-otter-pink-200 hover:bg-otter-pink-300 cursor-pointer rounded-lg px-4 py-2 text-sm font-medium text-[#0b1120] shadow-[0_0_10px_rgba(249,169,213,0.5)] transition-colors"
 					>
-						Accepter
+						{t("consent.accept")}
 					</button>
 				</div>
 			</div>
@@ -84,8 +90,9 @@ function BannerContent() {
 	)
 }
 
-export function ConsentBanner() {
+export function ConsentBanner({ locale }: ConsentBannerProps) {
 	const [client, setClient] = useState<any>(null)
+	const activeLocale = useActiveLocale(locale)
 
 	useEffect(() => {
 		let timeoutId: number | undefined
@@ -115,7 +122,7 @@ export function ConsentBanner() {
 
 	return (
 		<PostHogProvider client={client}>
-			<BannerContent />
+			<BannerContent locale={activeLocale} />
 		</PostHogProvider>
 	)
 }

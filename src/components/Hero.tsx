@@ -1,8 +1,13 @@
+import i18n from "i18next"
 import type { ReactNode } from "react"
 
+import { normalizeLocale } from "../i18n/config"
 import { Twemoji } from "./common/Twemoji"
 
 export function Hero({ children }: { children?: ReactNode }) {
+	const locale = normalizeLocale(i18n.resolvedLanguage ?? i18n.language)
+	const t = i18n.getFixedT(locale, "common")
+
 	return (
 		<section className="relative mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-16 px-6 pt-16 pb-10 lg:flex-row lg:gap-24 lg:py-32">
 			{/* Content */}
@@ -14,31 +19,30 @@ export function Hero({ children }: { children?: ReactNode }) {
 						<div className="bg-otter-pink-200 relative h-2 w-2 rounded-full"></div>
 					</div>
 					<span className="text-otter-pink-200 text-center text-[10px] font-bold tracking-wider uppercase sm:text-xs">
-						Disponible pour de nouvelles missions
+						{t("hero.availability")}
 					</span>
 				</div>
 
 				{/* Headlines */}
 				<h1 className="text-center text-4xl leading-tight font-black tracking-tight text-white sm:text-5xl lg:text-left lg:text-7xl">
-					Expert Backend
+					{t("hero.titleLead")}
 					<br />
 					<span className="text-otter-pink-200">
-						NodeJS/
+						{t("hero.titleTech").split("/")[0]}/
 						<wbr />
-						TypeScript
+						{t("hero.titleTech").split("/")[1]}
 					</span>
-					<br />& Fondateur
 					<br />
-					d'Otterly Space
+					{t("hero.titleFounder")}
+					<br />
+					{t("hero.titleCompany")}
 				</h1>
 
 				{/* Subtitle */}
 				<p className="max-w-2xl text-center text-xl leading-relaxed font-normal text-slate-400 lg:text-left">
-					10+ ans d'expérience au service des startups.
+					{t("hero.subtitleLead")}
 					<br />
-					<Twemoji eagerLoading>
-						Passionné par l'architecture logicielle, la performance et… les loutres 🦦
-					</Twemoji>
+					<Twemoji eagerLoading>{t("hero.subtitleBody")}</Twemoji>
 				</p>
 
 				{/* CTAs */}
@@ -47,7 +51,7 @@ export function Hero({ children }: { children?: ReactNode }) {
 						href={import.meta.env.PUBLIC_MEET_LINK}
 						className="bg-otter-pink-200 hover:bg-otter-pink-300 focus-visible:ring-otter-pink-200 w-full rounded-3xl px-8 py-4 text-center text-lg font-bold text-[#0b1120] shadow-[0_20px_25px_-5px_rgba(249,169,213,0.25)] transition-colors focus-visible:ring-2 focus-visible:outline-none sm:w-auto"
 					>
-						Discuter avec moi
+						{t("hero.primaryCta")}
 					</a>
 					<a
 						href="https://otterly.space"
@@ -55,7 +59,7 @@ export function Hero({ children }: { children?: ReactNode }) {
 						rel="noopener noreferrer"
 						className="border-otter-pink-200/30 hover:bg-otter-pink-200/10 focus-visible:ring-otter-pink-200 w-full rounded-3xl border px-8 py-4 text-center text-lg font-bold text-white transition-colors focus-visible:ring-2 focus-visible:outline-none sm:w-auto"
 					>
-						Découvrir Otterly Space
+						{t("hero.secondaryCta")}
 					</a>
 				</div>
 			</div>
