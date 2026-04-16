@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
     <img src="https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
     <img src="https://img.shields.io/badge/Docker-Optimized-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-    <a href="https://railway.com?referralCode=h-EWY1">
+    <a href="https://railway.com?referralCode=otterly-space">
       <img src="https://img.shields.io/badge/Deployed_on-Railway-0B0D17?style=for-the-badge&logo=railway&logoColor=white" alt="Deployed on Railway" />
     </a>
   </p>
